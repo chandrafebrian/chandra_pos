@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Saat nya mendevlop applikasi sendiri',
+              'Saat nya mendevlop applikasi sendiri mulai',
             ),
             Text(
               '$_counter',
