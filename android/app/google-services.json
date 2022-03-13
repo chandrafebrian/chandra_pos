@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "183491091476",
+    "project_id": "chandra-pos-99",
+    "storage_bucket": "chandra-pos-99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183491091476:android:9ddca58f4e2d081ec49b01",
+        "android_client_info": {
+          "package_name": "com.example.chandra_pos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183491091476-ptofbaae2f4fn0ne3v2dffha5u4g7m62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjfbAA0wSrrU5yvLSqAH6Xp0MMn8BbTjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183491091476-ptofbaae2f4fn0ne3v2dffha5u4g7m62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
