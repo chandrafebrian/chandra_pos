@@ -11,5 +11,10 @@ class Pengguna extends Equatable {
       {this.name, this.profilePicture, this.balance});
 
   @override
+  String toString() {
+    return '[$id] - $name , $email';
+  }
+
+  @override
   List<Object?> get props => [id, email, name, profilePicture, balance];
 }
