@@ -17,6 +17,18 @@ class AuthServices {
       return SignSignUpResult(pesan: e.toString());
     }
   }
+
+  Future<SignSignUpResult> signIn(String email, String password) async {
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+
+      Pengguna pengguna = await result.user!.fromFirestoreNih();
+      return SignSignUpResult(pengguna: pengguna);
+    } catch (e) {
+      return SignSignUpResult(pesan: e.toString());
+    }
+  }
 }
 
 class SignSignUpResult {
