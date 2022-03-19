@@ -44,6 +44,12 @@ class MyApp extends StatelessWidget {
                 },
                 child: const Text('Sign In'),
               ),
+              ElevatedButton(
+                onPressed: () async {
+                  await AuthServices().signOut();
+                },
+                child: const Text('Sign Out'),
+              ),
             ],
           ),
         ),

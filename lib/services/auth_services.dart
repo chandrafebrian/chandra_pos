@@ -26,8 +26,12 @@ class AuthServices {
       Pengguna pengguna = await result.user!.fromFirestoreNih();
       return SignSignUpResult(pengguna: pengguna);
     } catch (e) {
-      return SignSignUpResult(pesan: e.toString());
+      return SignSignUpResult(pesan: e.toString().split(',')[1]);
     }
+  }
+
+  Future<void> signOut() async {
+    await _auth.signOut();
   }
 }
 
