@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               ElevatedButton(
                 onPressed: () async {
                   SignSignUpResult result = await AuthServices()
-                      .signUp('joko@gmail.com', '123456', 'joko');
+                      .signUp('silvia@gmail.com', '123456', 'silvia');
                   if (result.pengguna == null) {
                     debugPrint(result.pesan);
                   } else {
@@ -34,10 +34,8 @@ class MyApp extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  SignSignUpResult result = await AuthServices().signIn(
-                    'joko@gmail.com',
-                    '123456',
-                  );
+                  SignSignUpResult result = await AuthServices()
+                      .signIn('chandra@gmail.com', '123456');
                   if (result.pengguna == null) {
                     debugPrint(result.pesan);
                   } else {
