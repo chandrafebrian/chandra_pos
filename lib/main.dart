@@ -1,6 +1,8 @@
 import 'package:chandra_pos/services/services.dart';
+import 'package:chandra_pos/ui/pages/pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,46 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () async {
-                  SignSignUpResult result = await AuthServices()
-                      .signUp('silvia@gmail.com', '123456', 'silvia');
-                  if (result.pengguna == null) {
-                    debugPrint(result.pesan);
-                  } else {
-                    debugPrint(result.pengguna.toString());
-                  }
-                },
-                child: const Text('Sign Up'),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  SignSignUpResult result = await AuthServices()
-                      .signIn('chandra@gmail.com', '123456');
-                  if (result.pengguna == null) {
-                    debugPrint(result.pesan);
-                  } else {
-                    debugPrint(result.pengguna.toString());
-                  }
-                },
-                child: const Text('Sign In'),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  await AuthServices().signOut();
-                },
-                child: const Text('Sign Out'),
-              ),
-            ],
-          ),
-        ),
+    return StreamProvider.value(
+      value: AuthServices().userStream,
+      initialData: null,
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Wrapper(),
       ),
     );
   }
