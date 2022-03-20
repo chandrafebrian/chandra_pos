@@ -33,6 +33,8 @@ class AuthServices {
   Future<void> signOut() async {
     await _auth.signOut();
   }
+
+  Stream<User?> get userStream => _auth.authStateChanges();
 }
 
 class SignSignUpResult {
