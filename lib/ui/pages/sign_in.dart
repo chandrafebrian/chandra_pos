@@ -17,7 +17,7 @@ class _SignInPageState extends State<SignInPage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            AuthServices().signIn('chandra@gmail.com', '123456');
+            AuthServices().signIn('test@gmail.com', '123456');
           },
           child: const Text('Sign In'),
         ),
