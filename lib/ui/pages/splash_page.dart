@@ -6,15 +6,72 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Splash Page'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<PageBloc>().add(GoToLoginPage());
-          },
-          child: const Text('Hallo'),
+      backgroundColor: Colors.white,
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 136,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/logo.png'),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 70, bottom: 16),
+              child: Text(
+                'New Enterprise',
+                style: mainTextStyle.copyWith(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Text(
+              'data',
+              style: mainTextStyle.copyWith(
+                  fontSize: 16, fontWeight: FontWeight.w300),
+            ),
+            Container(
+              width: 250,
+              height: 46,
+              margin: const EdgeInsets.only(top: 70, bottom: 19),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: mainColor,
+                ),
+                onPressed: () {
+                  context.read<PageBloc>().add(GoToLoginPage());
+                },
+                child: Text(
+                  'Get Started',
+                  style: mainTextStyle.copyWith(fontSize: 16, color: white),
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Already have an account?',
+                  style: mainTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+                Text(
+                  ' Sign In',
+                  style: mainTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: mainColor,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
