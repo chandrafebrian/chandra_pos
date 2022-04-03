@@ -11,6 +11,7 @@ class SplashPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               height: 136,
@@ -43,7 +44,7 @@ class SplashPage extends StatelessWidget {
                   primary: mainColor,
                 ),
                 onPressed: () {
-                  context.read<PageBloc>().add(GoToLoginPage());
+                  //untuk tombol signup
                 },
                 child: Text(
                   'Get Started',
@@ -61,12 +62,17 @@ class SplashPage extends StatelessWidget {
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                Text(
-                  ' Sign In',
-                  style: mainTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: mainColor,
+                GestureDetector(
+                  onTap: () {
+                    context.read<PageBloc>().add(GoToLoginPage());
+                  },
+                  child: Text(
+                    ' Sign In',
+                    style: mainTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: mainColor,
+                    ),
                   ),
                 ),
               ],
