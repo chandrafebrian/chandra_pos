@@ -2,7 +2,9 @@ import 'package:chandra_pos/services/services.dart';
 import 'package:chandra_pos/ui/pages/pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'bloc/blocs.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +20,14 @@ class MyApp extends StatelessWidget {
     return StreamProvider.value(
       value: AuthServices().userStream,
       initialData: null,
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Wrapper(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => PageBloc()),
+        ],
+        child: const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Wrapper(),
+        ),
       ),
     );
   }

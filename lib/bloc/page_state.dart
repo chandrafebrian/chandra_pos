@@ -7,7 +7,7 @@ abstract class PageState extends Equatable {
   List<Object> get props => [];
 }
 
-class OnInitialPage extends PageState {
+class PageInitial extends PageState {
   @override
   List<Object> get props => [];
 }

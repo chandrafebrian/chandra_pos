@@ -12,7 +12,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blue,
         title: const Text('Main Page'),
       ),
       body: Center(
@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
           onPressed: () {
             AuthServices().signOut();
           },
-          child: const Text('Sign Out'),
+          child: const Text('out'),
         ),
       ),
     );
