@@ -8,17 +8,24 @@ class Wrapper extends StatelessWidget {
     final User? user = context.watch<User?>();
 
     if (user == null) {
-      context.read<PageBloc>().add(GoToSplashPage());
+      if (previousPageEvent is! GoToSplashPage) {
+        previousPageEvent = GoToSplashPage();
+        context.read<PageBloc>().add(previousPageEvent!);
+      }
     } else {
-      context.read<PageBloc>().add(GoToMainPage());
+      if (previousPageEvent is! GoToMainPage) {
+        previousPageEvent = GoToMainPage();
+        context.read<PageBloc>().add(previousPageEvent!);
+      }
     }
 
     return BlocBuilder<PageBloc, PageState>(
-        builder: (context, state) => (state is OnSplashPage)
-            ? const SplashPage()
-            : (state is OnLoginPage)
-                ? const SignInPage()
-                : const MainPage());
+      builder: (context, state) => (state is OnSplashPage)
+          ? const SplashPage()
+          : (state is OnLoginPage)
+              ? const SignInPage()
+              : const MainPage(),
+    );
   }
 }
 
