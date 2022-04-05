@@ -10,6 +10,7 @@ class SignInPage extends StatefulWidget {
 TextEditingController mengaturEmail = TextEditingController();
 TextEditingController mengaturPassword = TextEditingController();
 
+bool obscureText = true;
 bool isEmailValid = false;
 bool isPasswordValid = false;
 bool isSignInValid = false;
@@ -47,10 +48,23 @@ class _SignInPageState extends State<SignInPage> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Password',
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      obscureText ? Icons.visibility : Icons.visibility_off,
+                      color: mainColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
+                  ),
                 ),
+                obscureText: obscureText,
               ),
               const SizedBox(height: 6),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text('Forget Password?',
                       style: mainTextStyle.copyWith(
