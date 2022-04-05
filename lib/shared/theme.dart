@@ -12,3 +12,8 @@ TextStyle mainTextStyle = GoogleFonts.lato().copyWith(
   color: Colors.black,
   fontWeight: FontWeight.w600,
 );
+
+TextStyle textKeduaPutih = GoogleFonts.lato().copyWith(
+  color: Colors.white,
+  fontWeight: FontWeight.w600,
+);
