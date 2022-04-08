@@ -19,86 +19,93 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Container(
-          padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 70,
-                child: Image.asset('assets/logo.png'),
-              ),
-              const SizedBox(height: 10),
-              TextField(
-                controller: mengaturEmail,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  labelText: 'Email',
+      backgroundColor: Colors.white,
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+        child: ListView(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 150),
+                SizedBox(
+                  height: 70,
+                  child: Image.asset('assets/logo.png'),
                 ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: mengaturPassword,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  labelText: 'Password',
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: mainColor,
+                const SizedBox(height: 18),
+                TextField(
+                  controller: mengaturEmail,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
+                    labelText: 'Email',
+                  ),
+                ),
+                const SizedBox(height: 18),
+                TextField(
+                  controller: mengaturPassword,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    labelText: 'Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        obscureText ? Icons.visibility_off : Icons.visibility,
+                        color: mainColor,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                    ),
+                  ),
+                  obscureText: obscureText,
+                ),
+
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Forget Password?',
+                        style: mainTextStyle.copyWith(
+                            fontSize: 12, fontWeight: FontWeight.w400)),
+                    Text('Get Now',
+                        style: mainTextStyle.copyWith(
+                            fontSize: 12, fontWeight: FontWeight.w400)),
+                  ],
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  margin: const EdgeInsets.only(top: 40, bottom: 30),
+                  child: FloatingActionButton(
                     onPressed: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
+                      //untuk tombol signup
                     },
+                    child: const Icon(Icons.arrow_forward),
                   ),
                 ),
-                obscureText: obscureText,
-              ),
-              const SizedBox(height: 6),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text('Forget Password?',
-                      style: mainTextStyle.copyWith(
-                          fontSize: 12, fontWeight: FontWeight.w400)),
-                  Text('Get Now',
-                      style: mainTextStyle.copyWith(
-                          fontSize: 12, fontWeight: FontWeight.w400)),
-                ],
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                margin: const EdgeInsets.only(top: 40, bottom: 30),
-                child: FloatingActionButton(
-                  onPressed: () {
-                    //untuk tombol signup
-                  },
-                  child: const Icon(Icons.arrow_forward),
-                ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    'data',
-                    style: mainTextStyle.copyWith(fontSize: 10),
-                  ),
-                  Text(
-                    'data',
-                    style: mainTextStyle.copyWith(fontSize: 10),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ));
+                // Row(
+                //   children: [
+                //     Text(
+                //       'data',
+                //       style: mainTextStyle.copyWith(fontSize: 10),
+                //     ),
+                //     Text(
+                //       'data',
+                //       style: mainTextStyle.copyWith(fontSize: 10),
+                //     ),
+                //   ],
+                // ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
