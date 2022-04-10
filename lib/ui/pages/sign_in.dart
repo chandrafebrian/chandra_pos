@@ -18,6 +18,10 @@ bool isSignInValid = false;
 class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
+    context
+        .read<ThemeBloc>()
+        .add(ChangeTheme(ThemeData(primarySwatch: Colors.deepPurple)));
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(

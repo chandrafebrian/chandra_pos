@@ -28,9 +28,9 @@ class MyApp extends StatelessWidget {
         ],
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) => MaterialApp(
-            theme: state.themeData,
             debugShowCheckedModeBanner: false,
             home: const Wrapper(),
+            theme: state.themeData,
           ),
         ),
       ),
