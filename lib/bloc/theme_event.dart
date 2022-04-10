@@ -7,10 +7,10 @@ abstract class ThemeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class ChangeThemaEvent extends ThemeEvent {
+class ChangeTheme extends ThemeEvent {
   final ThemeData themeData;
 
-  const ChangeThemaEvent(this.themeData);
+  const ChangeTheme(this.themeData);
 
   @override
   List<Object> get props => [themeData];

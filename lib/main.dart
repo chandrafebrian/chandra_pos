@@ -24,10 +24,14 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (_) => PageBloc()),
           BlocProvider(create: (_) => PenggunaBloc()),
+          BlocProvider(create: (_) => ThemeBloc()),
         ],
-        child: const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: Wrapper(),
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) => MaterialApp(
+            theme: state.themeData,
+            debugShowCheckedModeBanner: false,
+            home: const Wrapper(),
+          ),
         ),
       ),
     );
