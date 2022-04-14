@@ -39,6 +39,11 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 18),
                 TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      isEmailValid = EmailValidator.validate(value);
+                    });
+                  },
                   controller: mengaturEmail,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -49,6 +54,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 18),
                 TextField(
+                  onChanged: (value) {},
                   controller: mengaturPassword,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
