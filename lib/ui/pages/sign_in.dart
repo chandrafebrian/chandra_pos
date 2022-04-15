@@ -111,7 +111,9 @@ class _SignInPageState extends State<SignInPage> {
                               setState(() {
                                 isSignInValid = false;
                               });
-                              return;
+                              Flushbar(
+                                duration: const Duration(seconds: 3),
+                              );
                             }
                           }
                         : null,
