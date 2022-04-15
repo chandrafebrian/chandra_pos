@@ -40,6 +40,7 @@ class _SignInPageState extends State<SignInPage> {
                 const SizedBox(height: 18),
                 TextField(
                   onChanged: (value) {
+                    // setstate untuk mengubah state tampilan ui saat ada perubahan
                     setState(() {
                       isEmailValid = EmailValidator.validate(value);
                     });
@@ -54,7 +55,11 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 18),
                 TextField(
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    setState(() {
+                      isPasswordValid = value.length >= 6;
+                    });
+                  },
                   controller: mengaturPassword,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -93,10 +98,32 @@ class _SignInPageState extends State<SignInPage> {
                   height: 50,
                   margin: const EdgeInsets.only(top: 40, bottom: 30),
                   child: FloatingActionButton(
-                    onPressed: () {
-                      //untuk tombol  sign in
-                    },
-                    child: const Icon(Icons.arrow_forward),
+                    onPressed: isEmailValid && isPasswordValid
+                        ? () async {
+                            setState(() {
+                              isSignInValid = true;
+                            });
+                            SignSignUpResult result = await AuthServices()
+                                .signIn(
+                                    mengaturEmail.text, mengaturPassword.text);
+
+                            if (result.pengguna == null) {
+                              setState(() {
+                                isSignInValid = false;
+                              });
+                              return;
+                            }
+                          }
+                        : null,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: isEmailValid & isPasswordValid
+                          ? Colors.white
+                          : Colors.white,
+                    ),
+                    backgroundColor: isEmailValid && isPasswordValid
+                        ? mainColor
+                        : const Color(0xFFE4E4E4),
                   ),
                 ),
                 // Row(
