@@ -97,36 +97,45 @@ class _SignInPageState extends State<SignInPage> {
                   width: 50,
                   height: 50,
                   margin: const EdgeInsets.only(top: 40, bottom: 30),
-                  child: FloatingActionButton(
-                    onPressed: isEmailValid && isPasswordValid
-                        ? () async {
-                            setState(() {
-                              isSignInValid = true;
-                            });
-                            SignSignUpResult result = await AuthServices()
-                                .signIn(
-                                    mengaturEmail.text, mengaturPassword.text);
+                  child: isSignInValid
+                      ? SpinKitFadingCircle(
+                          color: mainColor,
+                        )
+                      : FloatingActionButton(
+                          elevation: 0,
+                          onPressed: isEmailValid && isPasswordValid
+                              ? () async {
+                                  setState(() {
+                                    isSignInValid = true;
+                                  });
+                                  SignSignUpResult result = await AuthServices()
+                                      .signIn(mengaturEmail.text,
+                                          mengaturPassword.text);
 
-                            if (result.pengguna == null) {
-                              setState(() {
-                                isSignInValid = false;
-                              });
-                              Flushbar(
-                                duration: const Duration(seconds: 3),
-                              );
-                            }
-                          }
-                        : null,
-                    child: Icon(
-                      Icons.arrow_forward,
-                      color: isEmailValid & isPasswordValid
-                          ? Colors.white
-                          : Colors.white,
-                    ),
-                    backgroundColor: isEmailValid && isPasswordValid
-                        ? mainColor
-                        : const Color(0xFFE4E4E4),
-                  ),
+                                  if (result.pengguna == null) {
+                                    setState(() {
+                                      isSignInValid = false;
+                                    });
+                                    await Flushbar(
+                                      duration: const Duration(seconds: 5),
+                                      flushbarPosition: FlushbarPosition.TOP,
+                                      backgroundColor: Colors.red,
+                                      message:
+                                          'Maaf, User Belum Terdaftar Atau Salah Email & Password',
+                                    ).show(context);
+                                  }
+                                }
+                              : null,
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: isEmailValid & isPasswordValid
+                                ? Colors.white
+                                : Colors.white,
+                          ),
+                          backgroundColor: isEmailValid && isPasswordValid
+                              ? mainColor
+                              : const Color(0xFFE4E4E4),
+                        ),
                 ),
                 // Row(
                 //   children: [

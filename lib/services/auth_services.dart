@@ -14,7 +14,7 @@ class AuthServices {
       await PenggunaServicesFirestore().updatePengguna(pengguna);
       return SignSignUpResult(pengguna: pengguna);
     } catch (e) {
-      return SignSignUpResult(pesan: e.toString());
+      return SignSignUpResult(pesan: e.toString().split(',').first.trim());
     }
   }
 
@@ -26,7 +26,7 @@ class AuthServices {
       Pengguna pengguna = await result.user!.fromFirestoreNih();
       return SignSignUpResult(pengguna: pengguna);
     } catch (e) {
-      return SignSignUpResult(pesan: e.toString().split(',')[1]);
+      return SignSignUpResult(pesan: e.toString().split(',').first.trim());
     }
   }
 
