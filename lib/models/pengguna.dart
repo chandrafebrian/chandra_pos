@@ -2,7 +2,7 @@ part of 'models.dart';
 
 class Pengguna extends Equatable {
   final String id;
-  final String email;
+  final String? email;
   final String? name;
   final String? profilePicture;
 

@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
           children: [
             BlocBuilder<PenggunaBloc, PenggunaState>(
               builder: (context, state) => (state is PenggunaLoading)
-                  ? Text(state.pengguna.email)
+                  ? Text(state.pengguna.name!)
                   : const Text('No User'),
             ),
             ElevatedButton(
