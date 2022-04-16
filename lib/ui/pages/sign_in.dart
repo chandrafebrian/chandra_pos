@@ -105,18 +105,23 @@ class _SignInPageState extends State<SignInPage> {
                           elevation: 0,
                           onPressed: isEmailValid && isPasswordValid
                               ? () async {
-                                  setState(() {
-                                    isSignInValid = true;
-                                  });
+                                  if (mounted) {
+                                    setState(() {
+                                      isSignInValid = true;
+                                    });
+                                  }
+
                                   SignSignUpResult result = await AuthServices()
                                       .signIn(mengaturEmail.text,
                                           mengaturPassword.text);
 
                                   if (result.pengguna == null) {
-                                    setState(() {
-                                      isSignInValid = false;
-                                    });
-                                    await Flushbar(
+                                    if (mounted) {
+                                      setState(() {
+                                        isSignInValid = false;
+                                      });
+                                    }
+                                    Flushbar(
                                       duration: const Duration(seconds: 5),
                                       flushbarPosition: FlushbarPosition.TOP,
                                       backgroundColor: Colors.red,

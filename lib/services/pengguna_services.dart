@@ -8,7 +8,7 @@ class PenggunaServicesFirestore {
     _collectionReference.doc(pengguna.id).set({
       'email': pengguna.email,
       'name': pengguna.name,
-      'profilePicture': pengguna.profilePicture ?? 'kosong belum ada foto'
+      'profilePicture': pengguna.profilePicture ?? '',
     });
   }
 
