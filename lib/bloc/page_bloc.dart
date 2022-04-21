@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:chandra_pos/models/models.dart';
 import 'package:equatable/equatable.dart';
 
 part 'page_event.dart';
@@ -13,6 +14,12 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(OnSplashPage());
       } else if (event is GoToMainPage) {
         emit(OnMainPage());
+      } else if (event is GoToRegistrationPage) {
+        emit(OnRegistrationPage(event.registrationData));
+      } else if (event is GoToPreferencePage) {
+        emit(OnPreferencePage(event.registrationData));
+      } else if (event is GoToAccountConfirmationPage) {
+        emit(OnAccountConfirmationPage(event.registrationData));
       }
     });
   }

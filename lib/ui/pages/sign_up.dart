@@ -38,6 +38,23 @@ class _SignUpPageState extends State<SignUpPage> {
                 children: [
                   Container(
                     margin: const EdgeInsets.only(top: 20, bottom: 22),
+                    height: 56,
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: GestureDetector(
+                            onTap: () {
+                              context.read<PageBloc>().add(GoToSplashPage());
+                            },
+                            child: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
