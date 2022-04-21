@@ -44,7 +44,9 @@ class SplashPage extends StatelessWidget {
                   primary: mainColor,
                 ),
                 onPressed: () {
-                  //untuk tombol signup
+                  context
+                      .read<PageBloc>()
+                      .add(GoToRegistrationPage(RegistrationData()));
                 },
                 child: Text(
                   'Get Started',
