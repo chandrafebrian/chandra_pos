@@ -1,5 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:chandra_pos/bloc/blocs.dart';
+import 'package:chandra_pos/models/models.dart';
 import 'package:chandra_pos/services/services.dart';
 import 'package:chandra_pos/shared/shared.dart';
 import 'package:email_validator/email_validator.dart';
@@ -12,3 +13,6 @@ part 'wrapper.dart';
 part 'main_page.dart';
 part 'sign_in.dart';
 part 'splash_page.dart';
+part 'sign_up.dart';
+part 'account_confirmation.dart';
+part 'preference_page.dart';
