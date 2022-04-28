@@ -18,6 +18,10 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
+  bool obscureText = true;
+  bool isEmailValid = false;
+  bool isPasswordValid = false;
+
   @override
   void initState() {
     super.initState();
@@ -125,6 +129,72 @@ class _SignUpPageState extends State<SignUpPage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       labelText: 'Nama Outlet',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'Nama Pemilik',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    controller: noHpController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'No HP',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'Email',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isEmailValid = value.isNotEmpty && value.contains('@');
+                        isEmailValid = value.length >= 6;
+                      });
+                    },
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'Password',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          obscureText ? Icons.visibility_off : Icons.visibility,
+                          color: mainColor,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            obscureText = !obscureText;
+                          });
+                        },
+                      ),
                     ),
                   ),
                 ],
