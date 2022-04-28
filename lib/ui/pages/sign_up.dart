@@ -94,21 +94,37 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
-                          child: Container(
-                            height: 28,
-                            width: 28,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
+                          child: GestureDetector(
+                            onTap: () {
+                              //! nanti di lajutkan untuk pilih gambar
+                            },
+                            child: Container(
+                              height: 28,
+                              width: 28,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
                                   image: AssetImage(
                                       (widget.registrationData.profilefoto ==
                                               null)
                                           ? 'assets/btn_add_photo.png'
-                                          : 'assets/btn_del_photo.png')),
+                                          : 'assets/btn_del_photo.png'),
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                  const SizedBox(height: 36),
+                  TextField(
+                    controller: namaOutletController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'Nama Outlet',
                     ),
                   ),
                 ],
