@@ -1,5 +1,5 @@
 part of 'pages.dart';
-// * (Parameter) adalah sebutan untuk nilai inputan fungsi pada saat fungsi itu di definisikan,
+// * (Parameter) adalah sebutan untuk nilai inputan fungsi pada saat fungsi itu di definisikan / di jelaskan / di deklarasikan. ,
 // * (argument) adalah sebutan untuk nilai inputan fungsi pada saat fungsi itu dipanggil.
 
 class SignUpPage extends StatefulWidget {
@@ -33,6 +33,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    context
+        .read<ThemeBloc>()
+        .add(ChangeTheme(ThemeData(primarySwatch: Colors.deepPurple)));
     return WillPopScope(
       onWillPop: () async {
         context.read<PageBloc>().add(GoToSplashPage());
@@ -100,7 +103,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           alignment: Alignment.bottomCenter,
                           child: GestureDetector(
                             onTap: () {
-                              //! nanti di lajutkan untuk pilih gambar
+                              if (widget.registrationData.profilefoto == null) {
+                              } else {
+                                widget.registrationData.profilefoto = null;
+                              }
                             },
                             child: Container(
                               height: 28,
@@ -197,6 +203,45 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isEmailValid = value.isNotEmpty && value.contains('@');
+                        isEmailValid = value.length >= 6;
+                      });
+                    },
+                    controller: confirmPasswordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'Confirm Password',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          obscureText ? Icons.visibility_off : Icons.visibility,
+                          color: mainColor,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            obscureText = !obscureText;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  FloatingActionButton(
+                    child: const Icon(Icons.arrow_forward),
+                    backgroundColor: mainColor,
+                    elevation: 0,
+                    onPressed: () {},
+                  )
                 ],
               ),
             ],

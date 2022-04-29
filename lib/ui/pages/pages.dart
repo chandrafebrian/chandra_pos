@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 part 'wrapper.dart';
 part 'main_page.dart';
@@ -17,3 +18,8 @@ part 'splash_page.dart';
 part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
+
+Future<XFile?> ambilGambar(ImageSource source) async {
+  var image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  return image;
+}
