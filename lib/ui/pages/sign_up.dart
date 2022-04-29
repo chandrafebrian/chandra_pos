@@ -102,8 +102,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: GestureDetector(
-                            onTap: () {
+                            onTap: () async {
                               if (widget.registrationData.profilefoto == null) {
+                                widget.registrationData.profilefoto =
+                                    (await ambilGambar()) as File?;
                               } else {
                                 widget.registrationData.profilefoto = null;
                               }

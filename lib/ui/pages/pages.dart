@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:another_flushbar/flushbar.dart';
 import 'package:chandra_pos/bloc/blocs.dart';
 import 'package:chandra_pos/models/models.dart';
@@ -19,7 +21,7 @@ part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
 
-Future<XFile?> ambilGambar(ImageSource source) async {
+Future<XFile?> ambilGambar() async {
   var image = await ImagePicker().pickImage(source: ImageSource.gallery);
   return image;
 }
