@@ -19,8 +19,6 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   bool obscureText = true;
-  bool isEmailValid = false;
-  bool isPasswordValid = false;
 
   @override
   void initState() {
@@ -96,6 +94,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   : Image.file(
                                           widget.registrationData.profilefoto!)
                                       .image,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
@@ -109,6 +108,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               } else {
                                 widget.registrationData.profilefoto = null;
                               }
+                              setState(() {});
                             },
                             child: Container(
                               height: 28,
@@ -179,12 +179,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 16,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isEmailValid = value.isNotEmpty && value.contains('@');
-                        isEmailValid = value.length >= 6;
-                      });
-                    },
                     controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
@@ -209,12 +203,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 16,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isEmailValid = value.isNotEmpty && value.contains('@');
-                        isEmailValid = value.length >= 6;
-                      });
-                    },
                     controller: confirmPasswordController,
                     obscureText: true,
                     decoration: InputDecoration(
@@ -242,7 +230,29 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: const Icon(Icons.arrow_forward),
                     backgroundColor: mainColor,
                     elevation: 0,
-                    onPressed: () {},
+                    onPressed: () {
+                      if (!(nameController.text.trim() != "" &&
+                          emailController.text.trim() != "" &&
+                          namaOutletController.text.trim() != "" &&
+                          noHpController.text.trim() != "" &&
+                          passwordController.text.trim() != "" &&
+                          confirmPasswordController.text.trim() != "")) {
+                        Flushbar(
+                          duration: const Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: const Color(0xFFFF5C83),
+                          message: "Silahkan Isi Semua kolom yang Kosong",
+                        ).show(context);
+                      } else if (passwordController.text !=
+                          confirmPasswordController.text) {
+                        Flushbar(
+                          duration: const Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: const Color(0xFFFF5C83),
+                          message: "Cek Ulang Password Tidak Sama ",
+                        ).show(context);
+                      }
+                    },
                   )
                 ],
               ),
