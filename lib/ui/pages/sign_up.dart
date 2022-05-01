@@ -23,6 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
   bool isEmailValid = false;
   bool isPasswordValid = false;
   bool isEmailTaken = false;
+  bool isNoHpValid = false;
 
   @override
   void initState() {
@@ -30,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     namaOutletController.text = widget.registrationData.namaOutlet;
     nameController.text = widget.registrationData.name;
-    noHpController.text = widget.registrationData.noHp.toString();
+    noHpController.text = widget.registrationData.noHp;
     emailController.text = widget.registrationData.email;
   }
 
@@ -160,6 +161,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isNoHpValid = value.length >= 10 && value.length <= 13;
+                        isNoHpValid = value.contains('+62');
+                      });
+                    },
+                    keyboardType: TextInputType.number,
                     controller: noHpController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
