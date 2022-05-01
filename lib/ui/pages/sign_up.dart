@@ -11,6 +11,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final ImagePicker profilefoto = ImagePicker();
   TextEditingController namaOutletController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController noHpController = TextEditingController();
@@ -23,9 +24,10 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   void initState() {
     super.initState();
+
     namaOutletController.text = widget.registrationData.namaOutlet;
     nameController.text = widget.registrationData.name;
-    noHpController.text = widget.registrationData.noHp;
+    noHpController.text = widget.registrationData.noHp.toString();
     emailController.text = widget.registrationData.email;
   }
 
@@ -104,7 +106,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             onTap: () async {
                               if (widget.registrationData.profilefoto == null) {
                                 widget.registrationData.profilefoto =
-                                    (await ambilGambar()) as File?;
+                                    await ambilGambar(ImageSource.gallery);
                               } else {
                                 widget.registrationData.profilefoto = null;
                               }

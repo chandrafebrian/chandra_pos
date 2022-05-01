@@ -21,7 +21,17 @@ part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
 
-Future<XFile?> ambilGambar() async {
-  var image = await ImagePicker().pickImage(source: ImageSource.gallery);
-  return image;
+// Future<File> ambilGambar() async {
+//   File image =
+//       (await ImagePicker().pickImage(source: ImageSource.gallery)) as File;
+//   return image;
+// }
+
+final ImagePicker _picker = ImagePicker();
+
+Future<File?> ambilGambar(ImageSource source) async {
+  final XFile? image = await _picker.pickImage(source: source);
+
+  final File? file = File(image!.path);
+  return file;
 }
