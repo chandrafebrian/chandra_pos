@@ -164,7 +164,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     onChanged: (value) {
                       setState(() {
                         isNoHpValid = value.length >= 10 && value.length <= 13;
-                        isNoHpValid = value.contains('+62');
+                        isNoHpValid = value.contains('0');
                       });
                     },
                     keyboardType: TextInputType.number,
@@ -235,9 +235,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextField(
                     onChanged: (value) {
                       setState(() {
-                        isPasswordValid = value.length >= 6;
-                        isPasswordValid = value.contains(
-                            RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
+                        isPasswordValid = value.length >= 6 &&
+                            value.contains(
+                                RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
                       });
                     },
                     controller: confirmPasswordController,
@@ -281,7 +281,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
                           backgroundColor: const Color(0xFFFF5C83),
-                          message: "Silahkan Isi Semua kolom yang Kosong",
+                          message: "Silahkan Isi Kolom yang Kosong",
                         ).show(context);
                       } else if (passwordController.text !=
                           confirmPasswordController.text) {
@@ -289,12 +289,33 @@ class _SignUpPageState extends State<SignUpPage> {
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
                           backgroundColor: const Color(0xFFFF5C83),
+                          message: "Password Tidak Sama ",
+                        ).show(context);
+                      } else if (!isNoHpValid) {
+                        Flushbar(
+                          duration: const Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: const Color(0xFFFF5C83),
+                          message: "No HP Tidak Valid",
+                        ).show(context);
+                      } else if (!isEmailTaken) {
+                        Flushbar(
+                          duration: const Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: const Color(0xFFFF5C83),
+                          message: "Email Tidak Valid",
+                        ).show(context);
+                      } else if (!isPasswordValid) {
+                        Flushbar(
+                          duration: const Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: const Color(0xFFFF5C83),
                           message:
-                              "Password Tidak Sama harus ada huruf besar dan angka minimal 6 karakter ",
+                              "Min 6 Karakter Kombinasi Huruf Besar dan Angka",
                         ).show(context);
                       }
                     },
-                  )
+                  ),
                 ],
               ),
             ],
