@@ -44,11 +44,11 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const SizedBox(height: 18),
                   TextField(
-                    onChanged: (text) {
+                    onChanged: (value) {
                       // setstate untuk mengubah state tampilan ui saat ada perubahan
 
                       setState(() {
-                        isEmailValid = EmailValidator.validate(text);
+                        isEmailValid = EmailValidator.validate(value);
                       });
                     },
                     controller: mengaturEmail,
@@ -61,9 +61,11 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const SizedBox(height: 18),
                   TextField(
-                    onChanged: (text) {
+                    onChanged: (value) {
                       setState(() {
-                        isPasswordValid = text.length >= 6;
+                        isPasswordValid = value.length >= 6;
+                        isPasswordValid = value.contains(
+                            RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
                       });
                     },
                     controller: mengaturPassword,

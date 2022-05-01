@@ -4,7 +4,7 @@ class RegistrationData {
   String name;
   String email;
   String password;
-  String noHp;
+  int noHp;
   String namaOutlet;
   List<String> selectedGenres;
   File? profilefoto;
@@ -13,7 +13,7 @@ class RegistrationData {
     this.name = '',
     this.email = '',
     this.password = '',
-    this.noHp = '',
+    this.noHp = 0,
     this.namaOutlet = '',
     this.selectedGenres = const [],
     this.profilefoto,

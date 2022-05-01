@@ -11,7 +11,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final ImagePicker profilefoto = ImagePicker();
   TextEditingController namaOutletController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController noHpController = TextEditingController();
@@ -19,7 +18,11 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
-  bool obscureText = true;
+  bool obscureTextPassword = true;
+  bool obscureTextConfirmPassword = true;
+  bool isEmailValid = false;
+  bool isPasswordValid = false;
+  bool isEmailTaken = false;
 
   @override
   void initState() {
@@ -142,7 +145,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 10,
                   ),
                   TextField(
                     controller: nameController,
@@ -154,7 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 10,
                   ),
                   TextField(
                     controller: noHpController,
@@ -166,9 +169,17 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 10,
                   ),
                   TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isEmailTaken = EmailValidator.validate(value);
+                        isEmailTaken = value.isNotEmpty &&
+                            value.contains('@') &&
+                            value.contains('.');
+                      });
+                    },
                     controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -178,11 +189,17 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 10,
                   ),
                   TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isPasswordValid = value.length >= 6;
+                        isPasswordValid = value.contains(
+                            RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
+                      });
+                    },
                     controller: passwordController,
-                    obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -190,23 +207,32 @@ class _SignUpPageState extends State<SignUpPage> {
                       labelText: 'Password',
                       suffixIcon: IconButton(
                         icon: Icon(
-                          obscureText ? Icons.visibility_off : Icons.visibility,
+                          obscureTextPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
                           color: mainColor,
                         ),
                         onPressed: () {
                           setState(() {
-                            obscureText = !obscureText;
+                            obscureTextPassword = !obscureTextPassword;
                           });
                         },
                       ),
                     ),
+                    obscureText: obscureTextPassword,
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 10,
                   ),
                   TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isPasswordValid = value.length >= 6;
+                        isPasswordValid = value.contains(
+                            RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
+                      });
+                    },
                     controller: confirmPasswordController,
-                    obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -214,16 +240,20 @@ class _SignUpPageState extends State<SignUpPage> {
                       labelText: 'Confirm Password',
                       suffixIcon: IconButton(
                         icon: Icon(
-                          obscureText ? Icons.visibility_off : Icons.visibility,
+                          obscureTextConfirmPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
                           color: mainColor,
                         ),
                         onPressed: () {
                           setState(() {
-                            obscureText = !obscureText;
+                            obscureTextConfirmPassword =
+                                !obscureTextConfirmPassword;
                           });
                         },
                       ),
                     ),
+                    obscureText: obscureTextConfirmPassword,
                   ),
                   const SizedBox(
                     height: 30,
@@ -251,7 +281,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
                           backgroundColor: const Color(0xFFFF5C83),
-                          message: "Cek Ulang Password Tidak Sama ",
+                          message:
+                              "Password Tidak Sama harus ada huruf besar dan angka minimal 6 karakter ",
                         ).show(context);
                       }
                     },
