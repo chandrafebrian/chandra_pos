@@ -29,8 +29,8 @@ part 'preference_page.dart';
 
 final ImagePicker _picker = ImagePicker();
 
-Future<File?> ambilGambar(ImageSource source) async {
-  final XFile? image = await _picker.pickImage(source: source);
+Future<File?> ambilGambar() async {
+  final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 
   final File? file = File(image!.path);
   return file;

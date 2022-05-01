@@ -106,7 +106,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             onTap: () async {
                               if (widget.registrationData.profilefoto == null) {
                                 widget.registrationData.profilefoto =
-                                    await ambilGambar(ImageSource.gallery);
+                                    await ambilGambar();
                               } else {
                                 widget.registrationData.profilefoto = null;
                               }
