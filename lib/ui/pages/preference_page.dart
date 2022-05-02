@@ -24,6 +24,28 @@ class _PreferencePageState extends State<PreferencePage> {
         body: Container(
           color: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+          child: ListView(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 56,
+                    margin: const EdgeInsets.only(top: 20, bottom: 4),
+                    child: GestureDetector(
+                      onTap: () {
+                        widget.registrationData.password = '';
+                        context
+                            .read<PageBloc>()
+                            .add(GoToRegistrationPage(widget.registrationData));
+                      },
+                      child: const Icon(Icons.arrow_back),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
