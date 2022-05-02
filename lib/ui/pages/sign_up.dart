@@ -24,6 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
   bool isPasswordValid = false;
   bool isEmailTaken = false;
   bool isNoHpValid = false;
+  bool isNameValid = false;
 
   @override
   void initState() {
@@ -137,6 +138,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 36),
                   TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isNameValid = value.length >= 3;
+                      });
+                    },
                     controller: namaOutletController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -149,12 +155,17 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        isNameValid = value.length >= 3;
+                      });
+                    },
                     controller: nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      labelText: 'Nama Pemilik',
+                      labelText: 'Nama Pengguna',
                     ),
                   ),
                   const SizedBox(
@@ -163,8 +174,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextField(
                     onChanged: (value) {
                       setState(() {
-                        isNoHpValid = value.length >= 10 && value.length <= 13;
-                        isNoHpValid = value.contains('0');
+                        isNoHpValid = value.length >= 10 &&
+                            value.length <= 13 &&
+                            value.contains('0');
                       });
                     },
                     keyboardType: TextInputType.number,
@@ -173,7 +185,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      labelText: 'No HP',
+                      labelText: 'Hp',
                     ),
                   ),
                   const SizedBox(
@@ -182,10 +194,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextField(
                     onChanged: (value) {
                       setState(() {
-                        isEmailTaken = EmailValidator.validate(value);
                         isEmailTaken = value.isNotEmpty &&
                             value.contains('@') &&
-                            value.contains('.');
+                            value.contains('.') &&
+                            EmailValidator.validate(value);
                       });
                     },
                     controller: emailController,
@@ -202,9 +214,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextField(
                     onChanged: (value) {
                       setState(() {
-                        isPasswordValid = value.length >= 6;
-                        isPasswordValid = value.contains(
-                            RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
+                        isPasswordValid = value.length >= 6 &&
+                            value.contains(
+                                RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
                       });
                     },
                     controller: passwordController,
@@ -311,8 +323,23 @@ class _SignUpPageState extends State<SignUpPage> {
                           flushbarPosition: FlushbarPosition.TOP,
                           backgroundColor: const Color(0xFFFF5C83),
                           message:
-                              "Min 6 Karakter Kombinasi Huruf Besar dan Angka",
+                              "Password Min 6 Karakter Kombinasi Huruf Besar dan Angka",
                         ).show(context);
+                      } else if (!isNameValid) {
+                        Flushbar(
+                          duration: const Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: const Color(0xFFFF5C83),
+                          message: "Nama Min 3 Karakter",
+                        ).show(context);
+                      } else {
+                        widget.registrationData.namaOutlet =
+                            namaOutletController.text;
+                        widget.registrationData.name = nameController.text;
+                        widget.registrationData.email = emailController.text;
+                        widget.registrationData.noHp = noHpController.text;
+                        widget.registrationData.password =
+                            passwordController.text;
                       }
                     },
                   ),
