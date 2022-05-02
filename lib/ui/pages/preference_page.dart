@@ -111,3 +111,31 @@ class _PreferencePageState extends State<PreferencePage> {
     }
   }
 }
+
+
+
+
+
+// 
+// 
+// 
+//** */ code untuk memilih box
+//  void fungsiOnseletedGenre(String genre) {
+//     if (selectedGenres.isEmpty) {
+//       setState(() {
+//         selectedGenres.add(genre);
+//       });
+//     } else if (selectedGenres.contains(genre)) {
+//       {
+//         setState(() {
+//           selectedGenres.remove(genre);
+//         });
+//       }
+//     } else {
+//       setState(() {
+//         selectedGenres.removeLast().isEmpty
+//             ? selectedGenres.removeLast()
+//             : selectedGenres.add(genre);
+//       });
+//     }
+//   }
