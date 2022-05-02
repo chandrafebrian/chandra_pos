@@ -27,36 +27,8 @@ class Wrapper extends StatelessWidget {
                 ? const SignInPage()
                 : (state is OnRegistrationPage)
                     ? SignUpPage(key, state.registrationData)
-                    : const MainPage());
+                    : (state is OnPreferencePage)
+                        ? PreferencePage(key, state.registrationData)
+                        : const MainPage());
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (user == null) {
-//       if (previousPageEvent is GoToSplashPage) {
-//         previousPageEvent = GoToSplashPage();
-//         context.read<PageBloc>().add(previousPageEvent!);
-//       }
-//     } else {
-//       if (previousPageEvent is GoToMainPage) {
-//         previousPageEvent = GoToMainPage();
-//         context.read<PageBloc>().add(previousPageEvent!);
-//       }
-//     }
-//     return BlocBuilder<PageBloc, PageState>(
-//         builder: (context, pageState) => (pageState is OnSplashPage)
-//             ? const SplashPage()
-//             : (pageState is OnLoginPage)
-//                 ? const SignInPage()
-//                 : const MainPage());

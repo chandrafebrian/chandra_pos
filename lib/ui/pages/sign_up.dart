@@ -20,10 +20,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   bool obscureTextPassword = true;
   bool obscureTextConfirmPassword = true;
-  bool isPasswordValid = false;
-  bool isEmailTaken = false;
-  bool isNoHpValid = false;
-  bool isNameValid = false;
 
   @override
   void initState() {
@@ -137,11 +133,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 36),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isNameValid = value.length >= 3;
-                      });
-                    },
                     controller: namaOutletController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -154,11 +145,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isNameValid = value.length >= 3;
-                      });
-                    },
                     controller: nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -171,13 +157,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isNoHpValid = value.length >= 10 &&
-                            value.length <= 13 &&
-                            value.contains('0');
-                      });
-                    },
                     keyboardType: TextInputType.number,
                     controller: noHpController,
                     decoration: InputDecoration(
@@ -191,14 +170,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isEmailTaken = value.isNotEmpty &&
-                            value.contains('@') &&
-                            value.contains('.') &&
-                            EmailValidator.validate(value);
-                      });
-                    },
                     controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -211,13 +182,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isPasswordValid = value.length >= 6 &&
-                            value.contains(
-                                RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
-                      });
-                    },
                     controller: passwordController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -244,13 +208,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 10,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        isPasswordValid = value.length >= 6 &&
-                            value.contains(
-                                RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'));
-                      });
-                    },
                     controller: confirmPasswordController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -280,19 +237,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   FloatingActionButton(
                     child: Icon(
                       Icons.arrow_forward,
-                      color: isEmailTaken &&
-                              isNoHpValid &&
-                              isPasswordValid &&
-                              isNameValid
+                      color: nameController.text.isEmpty ||
+                              namaOutletController.text.isEmpty ||
+                              noHpController.text.isEmpty ||
+                              emailController.text.isEmpty ||
+                              passwordController.text.isEmpty ||
+                              confirmPasswordController.text.isEmpty
                           ? Colors.white
                           : Colors.white,
                     ),
-                    backgroundColor: isEmailTaken &&
-                            isNoHpValid &&
-                            isPasswordValid &&
-                            isNameValid
-                        ? mainColor
-                        : const Color(0xFFE4E4E4),
+                    backgroundColor: nameController.text.isEmpty ||
+                            namaOutletController.text.isEmpty ||
+                            noHpController.text.isEmpty ||
+                            emailController.text.isEmpty ||
+                            passwordController.text.isEmpty ||
+                            confirmPasswordController.text.isEmpty
+                        ? const Color(0xFFE4E4E4)
+                        : mainColor,
                     elevation: 0,
                     onPressed: () {
                       if (!(nameController.text.trim() != "" &&
@@ -315,21 +276,29 @@ class _SignUpPageState extends State<SignUpPage> {
                           backgroundColor: const Color(0xFFFF5C83),
                           message: "Password Tidak Sama ",
                         ).show(context);
-                      } else if (!isNoHpValid) {
+                      } else if (noHpController.text.length < 10 ||
+                          noHpController.text.length > 13 ||
+                          !noHpController.text.contains('0')) {
                         Flushbar(
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
                           backgroundColor: const Color(0xFFFF5C83),
                           message: "No HP Tidak Valid",
                         ).show(context);
-                      } else if (!isEmailTaken) {
+                      } else if (!emailController.text.contains('@') ||
+                          !emailController.text.contains('.')) {
                         Flushbar(
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
                           backgroundColor: const Color(0xFFFF5C83),
                           message: "Email Tidak Valid",
                         ).show(context);
-                      } else if (!isPasswordValid) {
+                      } else if (passwordController.text.length < 6 ||
+                          !passwordController.text.contains(
+                              RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])')) ||
+                          confirmPasswordController.text.length < 6 ||
+                          !confirmPasswordController.text.contains(
+                              RegExp(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])'))) {
                         Flushbar(
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
@@ -337,7 +306,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           message:
                               "Password Min 6 Karakter Kombinasi Huruf Besar dan Angka",
                         ).show(context);
-                      } else if (!isNameValid) {
+                      } else if (nameController.text.length < 3 ||
+                          namaOutletController.text.length < 3) {
                         Flushbar(
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
@@ -352,6 +322,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         widget.registrationData.noHp = noHpController.text;
                         widget.registrationData.password =
                             passwordController.text;
+                        context
+                            .read<PageBloc>()
+                            .add(GoToPreferencePage(widget.registrationData));
                       }
                     },
                   ),

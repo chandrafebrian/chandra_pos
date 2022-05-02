@@ -46,6 +46,15 @@ class SelectableBox extends StatelessWidget {
                     : const Color(0xFFE4E4E4),
           ),
         ),
+        child: Center(
+          child: Text(
+            text ?? 'None',
+            style: (textStyle ?? mainTextStyle).copyWith(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
       ),
     );
   }
