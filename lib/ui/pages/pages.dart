@@ -1,10 +1,10 @@
 import 'dart:io';
-
 import 'package:another_flushbar/flushbar.dart';
 import 'package:chandra_pos/bloc/blocs.dart';
 import 'package:chandra_pos/models/models.dart';
 import 'package:chandra_pos/services/services.dart';
 import 'package:chandra_pos/shared/shared.dart';
+import 'package:chandra_pos/ui/widgets/widgets.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,14 @@
 part of 'widgets.dart';
 
 class SelectableBox extends StatelessWidget {
+  final bool isSelected;
+  final bool isEnabeled;
+  final double widht;
+  final double height;
+  final String? text;
+  final Function? onTap;
+  final TextStyle? textStyle;
+
   const SelectableBox(
     this.text, {
     Key? key,
@@ -11,14 +19,6 @@ class SelectableBox extends StatelessWidget {
     this.onTap,
     this.textStyle,
   }) : super(key: key);
-
-  final bool isSelected;
-  final bool isEnabeled;
-  final double widht;
-  final double height;
-  final String? text;
-  final Function? onTap;
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +49,11 @@ class SelectableBox extends StatelessWidget {
         child: Center(
           child: Text(
             text ?? 'None',
-            style: (textStyle ?? mainTextStyle).copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
+            style: (textStyle ??
+                GoogleFonts.lato(
+                  fontSize: 18,
+                  color: mainColor,
+                )),
           ),
         ),
       ),
