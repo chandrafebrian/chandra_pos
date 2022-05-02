@@ -113,7 +113,7 @@ class _SignInPageState extends State<SignInPage> {
                             elevation: 0,
                             child: Icon(
                               Icons.arrow_forward,
-                              color: isEmailValid & isPasswordValid
+                              color: isEmailValid && isPasswordValid
                                   ? Colors.white
                                   : Colors.white,
                             ),

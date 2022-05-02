@@ -20,7 +20,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   bool obscureTextPassword = true;
   bool obscureTextConfirmPassword = true;
-  bool isEmailValid = false;
   bool isPasswordValid = false;
   bool isEmailTaken = false;
   bool isNoHpValid = false;
@@ -279,8 +278,21 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 30,
                   ),
                   FloatingActionButton(
-                    child: const Icon(Icons.arrow_forward),
-                    backgroundColor: mainColor,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: isEmailTaken &&
+                              isNoHpValid &&
+                              isPasswordValid &&
+                              isNameValid
+                          ? Colors.white
+                          : Colors.white,
+                    ),
+                    backgroundColor: isEmailTaken &&
+                            isNoHpValid &&
+                            isPasswordValid &&
+                            isNameValid
+                        ? mainColor
+                        : const Color(0xFFE4E4E4),
                     elevation: 0,
                     onPressed: () {
                       if (!(nameController.text.trim() != "" &&
