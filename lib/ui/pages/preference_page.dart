@@ -15,9 +15,20 @@ class PreferencePage extends StatefulWidget {
 }
 
 class _PreferencePageState extends State<PreferencePage> {
-  //
+  TextEditingController alamatController = TextEditingController();
+  TextEditingController kotaController = TextEditingController();
+
   List<String> selectedGenres = [];
   //
+
+  @override
+  void initState() {
+    super.initState();
+
+    alamatController.text = widget.registrationData.alamat;
+    kotaController.text = widget.registrationData.kota;
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -66,6 +77,18 @@ class _PreferencePageState extends State<PreferencePage> {
                     spacing: 16,
                     runSpacing: 10,
                     children: fungsiGenerateGenreWidget(context),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: alamatController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      labelText: 'Alamat',
+                    ),
                   ),
                 ],
               ),

@@ -8,6 +8,8 @@ class RegistrationData {
   String namaOutlet;
   List<String> selectedGenres;
   File? profilefoto;
+  String alamat;
+  String kota;
 
   RegistrationData({
     this.name = '',
@@ -17,5 +19,7 @@ class RegistrationData {
     this.namaOutlet = '',
     this.selectedGenres = const [],
     this.profilefoto,
+    this.alamat = '',
+    this.kota = '',
   });
 }
