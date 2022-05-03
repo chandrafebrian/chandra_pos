@@ -119,7 +119,7 @@ class _PreferencePageState extends State<PreferencePage> {
 // 
 // 
 // 
-//** */ code untuk memilih box
+//** */ code untuk memilih box single choice
 //  void fungsiOnseletedGenre(String genre) {
 //     if (selectedGenres.isEmpty) {
 //       setState(() {
