@@ -29,6 +29,9 @@ class Wrapper extends StatelessWidget {
                     ? SignUpPage(key, state.registrationData)
                     : (state is OnPreferencePage)
                         ? PreferencePage(key, state.registrationData)
-                        : const MainPage());
+                        : (state is OnAccountConfirmationPage)
+                            ? AccountConfirmationPage(
+                                key, state.registrationData)
+                            : const MainPage());
   }
 }
