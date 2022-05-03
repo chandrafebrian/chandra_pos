@@ -64,7 +64,7 @@ class _PreferencePageState extends State<PreferencePage> {
                     ),
                   ),
                   Text(
-                    'Pilih Tipe Kategori Usaha Anda',
+                    'Pilih Tipe Kategori Usaha',
                     style: GoogleFonts.lato(
                       fontSize: 18,
                       color: mainColor,
@@ -74,23 +74,100 @@ class _PreferencePageState extends State<PreferencePage> {
                     height: 16,
                   ),
                   Wrap(
-                    spacing: 16,
+                    spacing: 20,
                     runSpacing: 10,
                     children: fungsiGenerateGenreWidget(context),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
-                    controller: alamatController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      labelText: 'Alamat',
-                    ),
-                  ),
                 ],
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              Text(
+                'Input Lokasi Outlet',
+                style: GoogleFonts.lato(
+                  fontSize: 18,
+                  color: mainColor,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: alamatController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Alamat',
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              TextField(
+                controller: kotaController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Kota',
+                ),
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              Center(
+                child: FloatingActionButton(
+                  elevation: 0,
+                  backgroundColor: alamatController.text.isEmpty ||
+                          alamatController.text.isEmpty ||
+                          selectedGenres.isEmpty
+                      ? const Color(0XFFE4E4E4)
+                      : mainColor,
+                  child: Icon(
+                    Icons.arrow_forward,
+                    color: alamatController.text.isEmpty ||
+                            kotaController.text.isEmpty ||
+                            selectedGenres.isEmpty
+                        ? Colors.white
+                        : Colors.white,
+                  ),
+                  onPressed: () {
+                    if (selectedGenres.isEmpty) {
+                      Flushbar(
+                        duration: const Duration(milliseconds: 1500),
+                        flushbarPosition: FlushbarPosition.TOP,
+                        backgroundColor: const Color(0xFFFF5C83),
+                        message: 'Pilih 1 kategori',
+                      ).show(context);
+                    } else if (alamatController.text.length < 5) {
+                      Flushbar(
+                        duration: const Duration(milliseconds: 1500),
+                        flushbarPosition: FlushbarPosition.TOP,
+                        backgroundColor: const Color(0xFFFF5C83),
+                        message: 'Alamat Tidak Valid',
+                      ).show(context);
+                    } else if (kotaController.text.length < 4) {
+                      Flushbar(
+                        duration: const Duration(milliseconds: 1500),
+                        flushbarPosition: FlushbarPosition.TOP,
+                        backgroundColor: const Color(0xFFFF5C83),
+                        message: 'Nama Kota Tidak Valid',
+                      ).show(context);
+                    } else {
+                      widget.registrationData.selectedGenres = selectedGenres;
+                      widget.registrationData.alamat = alamatController.text;
+                      widget.registrationData.kota = kotaController.text;
+
+                      context.read<PageBloc>().add(
+                          GoToAccountConfirmationPage(widget.registrationData));
+                    }
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
             ],
           ),
