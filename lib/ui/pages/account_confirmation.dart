@@ -29,7 +29,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
               Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 20, bottom: 90),
+                    margin: const EdgeInsets.only(top: 20, bottom: 70),
                     height: 56,
                     child: Stack(
                       children: [
@@ -61,6 +61,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                   Container(
                     width: 150,
                     height: 150,
+                    margin: const EdgeInsets.only(bottom: 20),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -70,6 +71,21 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                                 .image,
                         fit: BoxFit.cover,
                       ),
+                    ),
+                  ),
+                  Text('Selamat Datang',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: mainColor,
+                      )),
+                  Text(
+                    widget.registrationData.name,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.lato(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
                     ),
                   ),
                 ],

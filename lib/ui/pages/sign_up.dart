@@ -278,10 +278,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         ).show(context);
                       } else if (noHpController.text.length < 10 ||
                           noHpController.text.length > 13 ||
-                          !noHpController.text.contains('0') ||
-                          !noHpController.text
-                              .contains(RegExp(r'(?=.*[0-9])')) ||
-                          noHpController.text.contains(RegExp(r"(?=.*-,)"))) {
+                          !noHpController.text.contains('08') ||
+                          noHpController.text.contains('+') ||
+                          noHpController.text.contains(RegExp(r'[.]')) ||
+                          noHpController.text.contains(RegExp(r'[-]')) ||
+                          noHpController.text.contains(RegExp(r'[,]')) ||
+                          noHpController.text.contains(RegExp(r'[/]')) ||
+                          noHpController.text.contains(RegExp(r'[_]'))) {
                         Flushbar(
                           duration: const Duration(milliseconds: 1500),
                           flushbarPosition: FlushbarPosition.TOP,
