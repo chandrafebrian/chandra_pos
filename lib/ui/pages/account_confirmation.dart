@@ -11,6 +11,7 @@ class AccountConfirmationPage extends StatefulWidget {
 }
 
 class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
+  bool isSigningUp = false;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -49,9 +50,9 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                           child: Text(
                             'Konfirmasi Akun',
                             style: GoogleFonts.lato(
-                              fontSize: 20,
-                              color: mainColor,
-                            ),
+                                fontSize: 20,
+                                color: mainColor,
+                                fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -88,6 +89,47 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                       color: Colors.black,
                     ),
                   ),
+                  const SizedBox(
+                    height: 110,
+                  ),
+                  (isSigningUp)
+                      ? const SpinKitFadingCircle(
+                          color: Color(0xff3e9d9d),
+                          size: 45,
+                        )
+                      : SizedBox(
+                          width: 250,
+                          height: 45,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: Text('Konfirmasi',
+                                style: GoogleFonts.lato(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white,
+                                )),
+                            onPressed: () async {
+                              setState(() {
+                                isSigningUp = true;
+                              });
+                              SignSignUpResult result =
+                                  await AuthServices().signUp(
+                                widget.registrationData.email,
+                                widget.registrationData.namaOutlet,
+                                widget.registrationData.password,
+                                widget.registrationData.name,
+                                widget.registrationData.noHp,
+                                widget.registrationData.alamat,
+                                widget.registrationData.kota,
+                                widget.registrationData.selectedGenres,
+                              );
+                            },
+                          ),
+                        ),
                 ],
               ),
             ],
