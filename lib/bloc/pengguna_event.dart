@@ -21,7 +21,7 @@ class SignOut extends PenggunaEvent {
   List<Object> get props => [];
 }
 
-class UpdateData extends PenggunaEvent {
+class UpdateDataPengguna extends PenggunaEvent {
   final String name;
   final String namaOutlet;
   final String kota;
@@ -29,7 +29,7 @@ class UpdateData extends PenggunaEvent {
   final String alamat;
   final String profilePicture;
 
-  const UpdateData({
+  const UpdateDataPengguna({
     this.profilePicture = '',
     this.namaOutlet = '',
     this.kota = '',

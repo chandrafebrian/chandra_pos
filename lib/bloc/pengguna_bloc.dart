@@ -9,10 +9,20 @@ class PenggunaBloc extends Bloc<PenggunaEvent, PenggunaState> {
   PenggunaBloc() : super(PenggunaInitial()) {
     on<PenggunaEvent>((event, emit) async {
       if (event is PenggunaMasuk) {
-        Pengguna user = await PenggunaServicesFirestore().getUser(event.id);
-        emit(PenggunaLoading(user));
+        Pengguna pengguna = await PenggunaServicesFirestore().getUser(event.id);
+        emit(PenggunaLoading(pengguna));
       } else if (event is SignOut) {
         emit(PenggunaInitial());
+      } else if (event is UpdateDataPengguna) {
+        Pengguna updatedUser = (state as PenggunaLoading).pengguna.copyWith(
+              name: event.name,
+              namaOutlet: event.namaOutlet,
+              kota: event.kota,
+              noHp: event.noHp,
+              alamat: event.alamat,
+              profilePicture: event.profilePicture,
+            );
+        emit(PenggunaLoading(updatedUser));
       }
     });
   }

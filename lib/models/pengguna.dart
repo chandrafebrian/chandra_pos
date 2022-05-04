@@ -29,6 +29,7 @@ class Pengguna extends Equatable {
     String? namaOutlet,
     String? alamat,
     String? kota,
+    String? profilePicture,
   }) {
     return Pengguna(
       id,
@@ -38,6 +39,8 @@ class Pengguna extends Equatable {
       namaOutlet: namaOutlet ?? this.namaOutlet,
       alamat: alamat ?? this.alamat,
       kota: kota ?? this.kota,
+      profilePicture: profilePicture ?? this.profilePicture,
+      selectedGenres: selectedGenres,
     );
   }
 
