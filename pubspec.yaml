@@ -23,6 +23,7 @@ dependencies:
   another_flushbar: ^1.10.28
   flutter_spinkit: ^5.1.0
   image_picker: ^0.8.5
+  firebase_storage: ^10.2.15
 
 dev_dependencies:
   flutter_test:

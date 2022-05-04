@@ -38,7 +38,8 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                           alignment: Alignment.centerLeft,
                           child: GestureDetector(
                             onTap: () {
-                              context.read<PageBloc>().add(GoToSplashPage());
+                              context.read<PageBloc>().add(
+                                  GoToPreferencePage(widget.registrationData));
                             },
                             child: Icon(
                               Icons.arrow_back,
@@ -116,6 +117,10 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                               setState(() {
                                 isSigningUp = true;
                               });
+
+                              imageFileToUpload =
+                                  widget.registrationData.profilefoto;
+
                               SignSignUpResult result =
                                   await AuthServices().signUp(
                                 widget.registrationData.email,

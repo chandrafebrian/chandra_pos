@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:chandra_pos/bloc/blocs.dart';
 import 'package:chandra_pos/models/models.dart';
@@ -11,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
 
 part 'wrapper.dart';
 part 'main_page.dart';
@@ -27,11 +25,4 @@ part 'preference_page.dart';
 //   return image;
 // }
 
-final ImagePicker _picker = ImagePicker();
 
-Future<File?> ambilGambar() async {
-  final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-
-  final File? file = File(image!.path);
-  return file;
-}
