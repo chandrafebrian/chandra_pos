@@ -8,7 +8,7 @@ class Pengguna extends Equatable {
   final String? namaOutlet;
   final String? alamat;
   final String? kota;
-  final List<String?> selectedGenres;
+  final List<String>? selectedGenres;
   final String? profilePicture;
 
   const Pengguna(
@@ -18,7 +18,7 @@ class Pengguna extends Equatable {
     this.alamat,
     this.kota,
     this.noHp,
-    this.selectedGenres = const [],
+    this.selectedGenres,
     this.name,
     this.profilePicture,
   });
@@ -34,5 +34,10 @@ class Pengguna extends Equatable {
         email,
         name,
         profilePicture,
+        namaOutlet,
+        alamat,
+        kota,
+        noHp,
+        selectedGenres,
       ];
 }

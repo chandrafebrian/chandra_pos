@@ -11,12 +11,18 @@ class AuthServices {
       String alamat,
       String kota,
       String noHp,
-      List<String?> selectedGenres) async {
+      List<String> selectedGenres) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
 
-      Pengguna pengguna = result.user!.convertToPengguna(name: name);
+      Pengguna pengguna = result.user!.convertToPengguna(
+          name: name,
+          noHp: noHp,
+          namaOutlet: namaOutlet,
+          alamat: alamat,
+          kota: kota,
+          selectedGenres: selectedGenres);
 
       await PenggunaServicesFirestore().updatePengguna(pengguna);
       return SignSignUpResult(pengguna: pengguna);

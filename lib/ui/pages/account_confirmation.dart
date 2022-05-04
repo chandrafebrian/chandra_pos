@@ -94,7 +94,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                   ),
                   (isSigningUp)
                       ? const SpinKitFadingCircle(
-                          color: Color(0xff3e9d9d),
+                          color: Colors.deepPurple,
                           size: 45,
                         )
                       : SizedBox(
@@ -119,14 +119,26 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                               SignSignUpResult result =
                                   await AuthServices().signUp(
                                 widget.registrationData.email,
-                                widget.registrationData.namaOutlet,
                                 widget.registrationData.password,
                                 widget.registrationData.name,
-                                widget.registrationData.noHp,
+                                widget.registrationData.namaOutlet,
                                 widget.registrationData.alamat,
                                 widget.registrationData.kota,
+                                widget.registrationData.noHp,
                                 widget.registrationData.selectedGenres,
                               );
+
+                              if (result.pengguna == null) {
+                                setState(() {
+                                  isSigningUp = false;
+                                });
+                                Flushbar(
+                                  flushbarPosition: FlushbarPosition.TOP,
+                                  backgroundColor: const Color(0xFFFF5C83),
+                                  duration: const Duration(milliseconds: 1500),
+                                  message: result.pesan,
+                                ).show(context);
+                              }
                             },
                           ),
                         ),
