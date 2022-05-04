@@ -20,10 +20,37 @@ class _MainPageState extends State<MainPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlocBuilder<PenggunaBloc, PenggunaState>(
-              builder: (context, state) => (state is PenggunaLoading)
-                  ? Text(state.pengguna.name!)
-                  : const Text('No User'),
-            ),
+                builder: ((context, state) {
+              if (state is PenggunaLoading) {
+                if (imageFileToUpload != null) {
+                  uploadImage(imageFileToUpload!).then((value) {
+                    imageFileToUpload = null;
+                    // context.read<PenggunaBloc>().add(event)
+                  });
+                }
+              }
+              return Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border:
+                          Border.all(color: const Color(0xFFFFC107), width: 1),
+                    ),
+                    child: Stack(
+                      children: [
+                        SpinKitFadingCircle(
+                          color: accentColor2,
+                          size: 50,
+                        ),
+                        Container()
+                      ],
+                    ),
+                  )
+                ],
+              );
+            })),
             ElevatedButton(
               onPressed: () {
                 AuthServices().signOut();

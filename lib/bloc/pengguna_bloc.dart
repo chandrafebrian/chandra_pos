@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:chandra_pos/models/models.dart';
 import 'package:chandra_pos/services/services.dart';
 import 'package:equatable/equatable.dart';
-
 part 'pengguna_event.dart';
 part 'pengguna_state.dart';
 

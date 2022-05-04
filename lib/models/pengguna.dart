@@ -23,6 +23,24 @@ class Pengguna extends Equatable {
     this.profilePicture,
   });
 
+  Pengguna copyWith({
+    String? name,
+    String? noHp,
+    String? namaOutlet,
+    String? alamat,
+    String? kota,
+  }) {
+    return Pengguna(
+      id,
+      email,
+      name: name ?? this.name,
+      noHp: noHp ?? this.noHp,
+      namaOutlet: namaOutlet ?? this.namaOutlet,
+      alamat: alamat ?? this.alamat,
+      kota: kota ?? this.kota,
+    );
+  }
+
   @override
   String toString() {
     return '[$id] - $name , $email';
