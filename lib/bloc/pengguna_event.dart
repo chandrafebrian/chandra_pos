@@ -22,29 +22,29 @@ class SignOut extends PenggunaEvent {
 }
 
 class UpdateDataPengguna extends PenggunaEvent {
-  final String name;
-  final String namaOutlet;
-  final String kota;
-  final String noHp;
-  final String alamat;
-  final String profilePicture;
+  final String? name;
+  final String? namaOutlet;
+  final String? kota;
+  final String? noHp;
+  final String? alamat;
+  final String? updatefotobloc;
 
   const UpdateDataPengguna({
-    this.profilePicture = '',
-    this.namaOutlet = '',
-    this.kota = '',
-    this.name = '',
-    this.noHp = '',
-    this.alamat = '',
+    this.updatefotobloc,
+    this.namaOutlet,
+    this.kota,
+    this.name,
+    this.noHp,
+    this.alamat,
   });
 
   @override
   List<Object> get props => [
-        name,
-        namaOutlet,
-        kota,
-        noHp,
-        alamat,
-        profilePicture,
+        updatefotobloc!,
+        name!,
+        namaOutlet!,
+        kota!,
+        noHp!,
+        alamat!,
       ];
 }

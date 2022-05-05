@@ -6,6 +6,7 @@ import 'package:chandra_pos/shared/shared.dart';
 import 'package:chandra_pos/ui/widgets/widgets.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

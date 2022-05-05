@@ -25,7 +25,10 @@ class _MainPageState extends State<MainPage> {
                 if (imageFileToUpload != null) {
                   uploadImage(imageFileToUpload!).then((value) {
                     imageFileToUpload = null;
-                    // context.read<PenggunaBloc>().add(event)
+
+                    context.read<PenggunaBloc>().add(UpdateDataPengguna(
+                          updatefotobloc: value,
+                        ));
                   });
                 }
               }
