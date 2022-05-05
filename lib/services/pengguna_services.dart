@@ -13,7 +13,7 @@ class PenggunaServicesFirestore {
       'selectedGenres': pengguna.selectedGenres,
       'email': pengguna.email,
       'name': pengguna.name,
-      'profilePicture': pengguna.profilePicture ?? '',
+      'profilePicture': pengguna.profilePicture ?? 'None Picture',
     });
   }
 

@@ -22,6 +22,7 @@ class PenggunaBloc extends Bloc<PenggunaEvent, PenggunaState> {
               alamat: event.alamat,
               profilePicture: event.profilePicture,
             );
+        await PenggunaServicesFirestore().updatePengguna(updatedUser);
         emit(PenggunaLoading(updatedUser));
       }
     });
