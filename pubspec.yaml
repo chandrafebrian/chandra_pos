@@ -24,6 +24,7 @@ dependencies:
   flutter_spinkit: ^5.1.0
   image_picker: ^0.8.5
   firebase_storage: ^10.2.15
+  appbar_textfield: ^1.0.1+1
   intl: ^0.17.0
 
 dev_dependencies:

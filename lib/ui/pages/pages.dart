@@ -18,11 +18,4 @@ part 'splash_page.dart';
 part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
-
-// Future<File> ambilGambar() async {
-//   File image =
-//       (await ImagePicker().pickImage(source: ImageSource.gallery)) as File;
-//   return image;
-// }
-
-
+part 'profile_pic.dart';
