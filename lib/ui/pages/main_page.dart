@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
               } else {
                 return SpinKitFadingCircle(
                   color: accentColor2,
-                  size: 50,
+                  size: 52,
                 );
               }
             })),
