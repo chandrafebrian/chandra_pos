@@ -27,10 +27,10 @@ class UpdateDataPengguna extends PenggunaEvent {
   final String? kota;
   final String? noHp;
   final String? alamat;
-  final String? updatefotobloc;
+  final String? profilePicture;
 
   const UpdateDataPengguna({
-    this.updatefotobloc,
+    this.profilePicture,
     this.namaOutlet,
     this.kota,
     this.name,
@@ -40,7 +40,7 @@ class UpdateDataPengguna extends PenggunaEvent {
 
   @override
   List<Object> get props => [
-        updatefotobloc!,
+        profilePicture!,
         name!,
         namaOutlet!,
         kota!,

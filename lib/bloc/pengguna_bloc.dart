@@ -20,7 +20,7 @@ class PenggunaBloc extends Bloc<PenggunaEvent, PenggunaState> {
               kota: event.kota,
               noHp: event.noHp,
               alamat: event.alamat,
-              profilePicture: event.updatefotobloc,
+              profilePicture: event.profilePicture,
             );
         emit(PenggunaLoading(updatedUser));
       }

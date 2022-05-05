@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
                     imageFileToUpload = null;
 
                     context.read<PenggunaBloc>().add(UpdateDataPengguna(
-                          updatefotobloc: value,
+                          profilePicture: value,
                         ));
                   });
                 }
