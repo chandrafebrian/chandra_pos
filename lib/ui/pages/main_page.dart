@@ -31,28 +31,47 @@ class _MainPageState extends State<MainPage> {
                         ));
                   });
                 }
+                return Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: const Color(0xFFFFC107), width: 1),
+                      ),
+                      child: Stack(
+                        children: [
+                          const SpinKitFadingCircle(
+                            color: Color(0xFFFFC107),
+                            size: 50,
+                          ),
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: (state.pengguna.profilePicture == ''
+                                    ? const AssetImage('assets/user_pic.png')
+                                        as ImageProvider
+                                    : NetworkImage(
+                                        state.pengguna.profilePicture!)),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                );
+              } else {
+                return SpinKitFadingCircle(
+                  color: accentColor2,
+                  size: 50,
+                );
               }
-              return Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border:
-                          Border.all(color: const Color(0xFFFFC107), width: 1),
-                    ),
-                    child: Stack(
-                      children: [
-                        SpinKitFadingCircle(
-                          color: accentColor2,
-                          size: 50,
-                        ),
-                        Container()
-                      ],
-                    ),
-                  )
-                ],
-              );
             })),
             ElevatedButton(
               onPressed: () {
