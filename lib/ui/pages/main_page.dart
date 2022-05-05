@@ -31,24 +31,14 @@ class _MainPageState extends State<MainPage> {
                         ));
                   });
                 }
-                return Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                            color: const Color(0xFFFFC107), width: 1),
-                      ),
-                      child: Stack(
+                return Center(
+                  child: Column(
+                    children: [
+                      Stack(
                         children: [
-                          const SpinKitFadingCircle(
-                            color: Color(0xFFFFC107),
-                            size: 50,
-                          ),
                           Container(
-                            height: 50,
-                            width: 50,
+                            height: 200,
+                            width: 200,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -63,13 +53,13 @@ class _MainPageState extends State<MainPage> {
                           ),
                         ],
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 );
               } else {
-                return SpinKitFadingCircle(
-                  color: accentColor2,
-                  size: 52,
+                return const SpinKitFadingCircle(
+                  color: Color(0xFFFFC107),
+                  size: 200,
                 );
               }
             })),
