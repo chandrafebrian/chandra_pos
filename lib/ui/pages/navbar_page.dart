@@ -12,7 +12,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: const Color.fromARGB(255, 8, 138, 67),
+        color: warnaUtamaChandraPos,
         child: ListView(
           children: [
             const SizedBox(

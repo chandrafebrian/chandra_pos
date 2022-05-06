@@ -3,18 +3,18 @@ part of 'shared.dart';
 const double defaultMargin = 24;
 
 MaterialColor warnaUtamaChandraPos = const MaterialColor(
-  0xff319F38,
+  0xff1D8509,
   <int, Color>{
-    50: Color(0xff319F38),
-    100: Color(0xff319F38),
-    200: Color(0xff319F38),
-    300: Color(0xff319F38),
-    400: Color(0xff319F38),
-    500: Color(0xff319F38),
-    600: Color(0xff319F38),
-    700: Color(0xff319F38),
-    800: Color(0xff319F38),
-    900: Color(0xff319F38),
+    50: Color(0xff1D8509),
+    100: Color(0xff1D8509),
+    200: Color(0xff1D8509),
+    300: Color(0xff1D8509),
+    400: Color(0xff1D8509),
+    500: Color(0xff1D8509),
+    600: Color(0xff1D8509),
+    700: Color(0xff1D8509),
+    800: Color(0xff1D8509),
+    900: Color(0xff1D8509),
   },
 );
 Color white = const Color(0xFFFFFFFF);
