@@ -15,7 +15,15 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Colors.deepPurple,
         title: const Text('Main Page'),
       ),
-      body: const Center(),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            AuthServices().signOut();
+          },
+          child: const Text('out'),
+        ),
+      ),
+
       // drawer is code of menu bar on left side
       drawer: Drawer(
         backgroundColor: Colors.deepPurple,
@@ -28,7 +36,7 @@ class _MainPageState extends State<MainPage> {
               leading: const Icon(Icons.home_outlined, color: Colors.white),
               title: const Text(
                 'Home',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               onTap: () {

@@ -11,7 +11,7 @@ class _ProfilePicState extends State<ProfilePic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.deepPurple,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,12 +60,6 @@ class _ProfilePicState extends State<ProfilePic> {
                 );
               }
             })),
-            ElevatedButton(
-              onPressed: () {
-                AuthServices().signOut();
-              },
-              child: const Text('out'),
-            ),
           ],
         ),
       ),

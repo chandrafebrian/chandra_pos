@@ -25,7 +25,8 @@ dependencies:
   image_picker: ^0.8.5
   firebase_storage: ^10.2.15
   appbar_textfield: ^1.0.1+1
-  intl: ^0.17.0
+  intl: ^0.17.0 #ini package untuk uang jadi rupiah
+  flutter_slidable: ^1.2.0 # ini package untuk slide list
 
 dev_dependencies:
   flutter_test:
