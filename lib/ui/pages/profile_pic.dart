@@ -50,6 +50,21 @@ class _ProfilePicState extends State<ProfilePic> {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 10),
+                      Text(
+                        state.pengguna.name!,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      Text(
+                        state.pengguna.email!,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
                     ],
                   ),
                 );
@@ -66,3 +81,4 @@ class _ProfilePicState extends State<ProfilePic> {
     );
   }
 }
+// 
