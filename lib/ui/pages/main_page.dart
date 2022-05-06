@@ -11,6 +11,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const NavBarPage(),
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: const Text('Main Page'),
@@ -21,35 +22,6 @@ class _MainPageState extends State<MainPage> {
             AuthServices().signOut();
           },
           child: const Text('out'),
-        ),
-      ),
-
-      // drawer is code of menu bar on left side
-      drawer: Drawer(
-        backgroundColor: Colors.deepPurple,
-        child: ListView(
-          children: <Widget>[
-            const DrawerHeader(
-              child: ProfilePic(),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home_outlined, color: Colors.white),
-              title: const Text(
-                'Home',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
         ),
       ),
     );

@@ -18,4 +18,4 @@ part 'splash_page.dart';
 part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
-part 'profile_pic.dart';
+part 'navbar_page.dart';
