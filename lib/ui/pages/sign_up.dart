@@ -33,9 +33,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    context
-        .read<ThemeBloc>()
-        .add(ChangeTheme(ThemeData(primarySwatch: Colors.deepPurple)));
+    context.read<ThemeBloc>().add(ChangeTheme(ThemeData(
+          primarySwatch: warnaUtamaChandraPos,
+        )));
     return WillPopScope(
       onWillPop: () async {
         context.read<PageBloc>().add(GoToSplashPage());
@@ -62,7 +62,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             },
                             child: Icon(
                               Icons.arrow_back,
-                              color: mainColor,
+                              color: warnaUtamaChandraPos,
                             ),
                           ),
                         ),
@@ -71,7 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             'Create New\nAccount',
                             style: GoogleFonts.lato(
                               fontSize: 20,
-                              color: mainColor,
+                              color: warnaUtamaChandraPos,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -193,7 +193,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           obscureTextPassword
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: mainColor,
+                          color: warnaUtamaChandraPos,
                         ),
                         onPressed: () {
                           setState(() {
@@ -219,7 +219,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           obscureTextConfirmPassword
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: mainColor,
+                          color: warnaUtamaChandraPos,
                         ),
                         onPressed: () {
                           setState(() {
@@ -253,7 +253,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             passwordController.text.isEmpty ||
                             confirmPasswordController.text.isEmpty
                         ? const Color(0xFFE4E4E4)
-                        : mainColor,
+                        : warnaUtamaChandraPos,
                     elevation: 0,
                     onPressed: () {
                       if (!(nameController.text.trim() != "" &&

@@ -43,7 +43,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                             },
                             child: Icon(
                               Icons.arrow_back,
-                              color: mainColor,
+                              color: warnaUtamaChandraPos,
                             ),
                           ),
                         ),
@@ -52,7 +52,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                             'Konfirmasi Akun',
                             style: GoogleFonts.lato(
                                 fontSize: 20,
-                                color: mainColor,
+                                color: warnaUtamaChandraPos,
                                 fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center,
                           ),
@@ -79,7 +79,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                       style: GoogleFonts.lato(
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
-                        color: mainColor,
+                        color: warnaUtamaChandraPos,
                       )),
                   Text(
                     widget.registrationData.name,
@@ -94,8 +94,8 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                     height: 110,
                   ),
                   (isSigningUp)
-                      ? const SpinKitFadingCircle(
-                          color: Colors.deepPurple,
+                      ? SpinKitFadingCircle(
+                          color: warnaUtamaChandraPos,
                           size: 45,
                         )
                       : SizedBox(

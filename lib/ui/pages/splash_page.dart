@@ -41,7 +41,7 @@ class SplashPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 70, bottom: 19),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: mainColor,
+                  primary: warnaUtamaChandraPos,
                 ),
                 onPressed: () {
                   context
@@ -73,7 +73,7 @@ class SplashPage extends StatelessWidget {
                     style: mainTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: mainColor,
+                      color: warnaUtamaChandraPos,
                     ),
                   ),
                 ),

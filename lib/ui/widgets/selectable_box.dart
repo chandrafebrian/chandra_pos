@@ -52,7 +52,7 @@ class SelectableBox extends StatelessWidget {
             style: (textStyle ??
                 GoogleFonts.lato(
                   fontSize: 18,
-                  color: mainColor,
+                  color: warnaUtamaChandraPos,
                 )),
           ),
         ),

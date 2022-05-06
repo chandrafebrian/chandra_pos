@@ -13,7 +13,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       drawer: const NavBarPage(),
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: warnaUtamaChandraPos,
         title: const Text('Main Page'),
       ),
       body: Center(

@@ -20,7 +20,7 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     context
         .read<ThemeBloc>()
-        .add(ChangeTheme(ThemeData(primarySwatch: Colors.deepPurple)));
+        .add(ChangeTheme(ThemeData(primarySwatch: warnaUtamaChandraPos)));
 
     return WillPopScope(
       onWillPop: () {
@@ -77,7 +77,7 @@ class _SignInPageState extends State<SignInPage> {
                       suffixIcon: IconButton(
                         icon: Icon(
                           obscureText ? Icons.visibility_off : Icons.visibility,
-                          color: mainColor,
+                          color: warnaUtamaChandraPos,
                         ),
                         onPressed: () {
                           setState(() {
@@ -107,7 +107,7 @@ class _SignInPageState extends State<SignInPage> {
                     margin: const EdgeInsets.only(top: 40, bottom: 30),
                     child: isSignInValid
                         ? SpinKitFadingCircle(
-                            color: mainColor,
+                            color: warnaUtamaChandraPos,
                           )
                         : FloatingActionButton(
                             elevation: 0,
@@ -118,7 +118,7 @@ class _SignInPageState extends State<SignInPage> {
                                   : Colors.white,
                             ),
                             backgroundColor: isEmailValid && isPasswordValid
-                                ? mainColor
+                                ? warnaUtamaChandraPos
                                 : const Color(0xFFE4E4E4),
                             onPressed: isEmailValid && isPasswordValid
                                 ? () async {
