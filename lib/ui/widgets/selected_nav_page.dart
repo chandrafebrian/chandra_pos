@@ -1,21 +1,17 @@
 part of 'widgets.dart';
 
-class SelectableBox extends StatelessWidget {
+class SelectedNavbarHalaman extends StatelessWidget {
   final bool isSelected;
   final bool isEnabeled;
-  final double widht;
-  final double height;
   final String? text;
   final Function? onTap;
   final TextStyle? textStyle;
 
-  const SelectableBox(
+  const SelectedNavbarHalaman(
     this.text, {
     Key? key,
     this.isSelected = false,
     this.isEnabeled = true,
-    this.widht = 144,
-    this.height = 60,
     this.onTap,
     this.textStyle,
   }) : super(key: key);
@@ -27,10 +23,14 @@ class SelectableBox extends StatelessWidget {
         if (onTap != null) {
           onTap!();
         }
+
+        (!isEnabeled)
+            ? const Color(0xffe4e4e4)
+            : isSelected
+                ? accentColor2
+                : Colors.transparent;
       },
       child: Container(
-        width: widht,
-        height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: (!isEnabeled)
