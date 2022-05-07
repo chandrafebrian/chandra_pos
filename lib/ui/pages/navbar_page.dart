@@ -24,6 +24,23 @@ class _NavBarPageState extends State<NavBarPage> {
                           profilePicture: value,
                         ));
                   });
+                  return Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.white, width: 1),
+                        ),
+                      ),
+                      Column(
+                        children: const [
+                          Text('User Name'),
+                          Text('Email User'),
+                        ],
+                      )
+                    ],
+                  );
                 }
                 return ListView(
                   children: [
