@@ -67,8 +67,9 @@ class _NavBarPageState extends State<NavBarPage> {
                           width: 16,
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(state.pengguna.name!,
+                            Text(state.pengguna.namaOutlet!,
                                 style: const TextStyle(color: Colors.white)),
                             const SizedBox(
                               height: 5,
