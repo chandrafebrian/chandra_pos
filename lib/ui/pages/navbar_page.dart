@@ -7,6 +7,8 @@ class NavBarPage extends StatefulWidget {
   State<NavBarPage> createState() => _NavBarPageState();
 }
 
+int selectedIndex = 0;
+
 class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
@@ -89,36 +91,50 @@ class _NavBarPageState extends State<NavBarPage> {
               const SizedBox(
                 height: 20,
               ),
-              ListTile(
-                selectedColor: Colors.blue,
-                selectedTileColor: Colors.red,
-                leading: const Icon(Icons.shopping_bag_outlined,
-                    color: Colors.white),
-                title: const Text('POINT OF SALE',
-                    style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  // untuk pindah halaman
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.punch_clock, color: Colors.white),
-                title: const Text('ACTIVITY',
-                    style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  // untuk pindah halaman
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.settings, color: Colors.white),
-                title: const Text('SETTING',
-                    style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  // untuk pindah halaman
-                },
-              ),
+              createDrawerHalamanNavBar(
+                  icon: Icons.shop_2,
+                  text: 'POINT OF SALE',
+                  isSelected: selectedIndex == 0,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = 0;
+                    });
+                    // untuk pindah halaman nya
+                    Navigator.of(context).pop();
+                  }),
+              createDrawerHalamanNavBar(
+                  icon: Icons.punch_clock,
+                  text: 'HISTORY',
+                  isSelected: selectedIndex == 1,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = 1;
+                    });
+                    // untuk pindah halaman nya
+                    Navigator.of(context).pop();
+                  }),
+              createDrawerHalamanNavBar(
+                  icon: Icons.inventory_2,
+                  text: 'INVENTORY',
+                  isSelected: selectedIndex == 2,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = 2;
+                    });
+                    // untuk pindah halaman nya
+                    Navigator.of(context).pop();
+                  }),
+              createDrawerHalamanNavBar(
+                  icon: Icons.settings,
+                  text: 'SETTINGS',
+                  isSelected: selectedIndex == 3,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = 3;
+                    });
+                    // untuk pindah halaman nya
+                    Navigator.of(context).pop();
+                  }),
             ],
           );
         } else {
