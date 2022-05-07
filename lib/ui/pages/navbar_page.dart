@@ -94,7 +94,7 @@ class _NavBarPageState extends State<NavBarPage> {
               createDrawerHalamanNavBar(
                   icon: Icons.shop_2,
                   text: 'POINT OF SALE',
-                  isSelected: selectedIndex == 0,
+                  isSelectedHalamanBar: selectedIndex == 0,
                   onTap: () {
                     setState(() {
                       selectedIndex = 0;
@@ -105,7 +105,7 @@ class _NavBarPageState extends State<NavBarPage> {
               createDrawerHalamanNavBar(
                   icon: Icons.punch_clock,
                   text: 'HISTORY',
-                  isSelected: selectedIndex == 1,
+                  isSelectedHalamanBar: selectedIndex == 1,
                   onTap: () {
                     setState(() {
                       selectedIndex = 1;
@@ -116,7 +116,7 @@ class _NavBarPageState extends State<NavBarPage> {
               createDrawerHalamanNavBar(
                   icon: Icons.inventory_2,
                   text: 'INVENTORY',
-                  isSelected: selectedIndex == 2,
+                  isSelectedHalamanBar: selectedIndex == 2,
                   onTap: () {
                     setState(() {
                       selectedIndex = 2;
@@ -127,7 +127,7 @@ class _NavBarPageState extends State<NavBarPage> {
               createDrawerHalamanNavBar(
                   icon: Icons.settings,
                   text: 'SETTINGS',
-                  isSelected: selectedIndex == 3,
+                  isSelectedHalamanBar: selectedIndex == 3,
                   onTap: () {
                     setState(() {
                       selectedIndex = 3;

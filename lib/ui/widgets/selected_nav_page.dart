@@ -1,14 +1,14 @@
 part of 'widgets.dart';
 
 Widget createDrawerHalamanNavBar({
-  IconData? icon,
-  String? text,
-  GestureTapCallback? onTap,
-  bool? isSelected,
-  Color? color,
+  final IconData? icon,
+  final String? text,
+  final GestureTapCallback? onTap,
+  final bool? isSelectedHalamanBar,
+  final Color? color,
 }) {
   return Ink(
-    color: isSelected! ? const Color(0xffE3EAFF) : Colors.transparent,
+    color: isSelectedHalamanBar! ? const Color(0xff006622) : Colors.transparent,
     child: ListTile(
       selected: true,
       hoverColor: Colors.red,
@@ -31,3 +31,6 @@ Widget createDrawerHalamanNavBar({
     ),
   );
 }
+
+// warna selected navbar
+// const Color(0xff006622)
