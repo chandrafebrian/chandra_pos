@@ -24,28 +24,61 @@ class _NavBarPageState extends State<NavBarPage> {
                           profilePicture: value,
                         ));
                   });
-                  return Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 1),
-                        ),
-                      ),
-                      Column(
-                        children: const [
-                          Text('User Name'),
-                          Text('Email User'),
-                        ],
-                      )
-                    ],
-                  );
                 }
                 return ListView(
                   children: [
-                    const UserAccountsDrawerHeader(
-                        accountName: Text('data'), accountEmail: Text('data')),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          height: 100,
+                          width: 20,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 1),
+                          ),
+                          child: Stack(
+                            children: [
+                              const SpinKitFadingCircle(
+                                color: Colors.white,
+                                size: 50,
+                              ),
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: (state.pengguna.profilePicture == ''
+                                        ? const AssetImage(
+                                                'assets/user_pic.png')
+                                            as ImageProvider
+                                        : NetworkImage(
+                                            state.pengguna.profilePicture!)),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          children: [
+                            Text(state.pengguna.name!,
+                                style: const TextStyle(color: Colors.white)),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(state.pengguna.email!,
+                                style: const TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                      ],
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
