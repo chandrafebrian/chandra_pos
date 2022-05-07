@@ -11,42 +11,62 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: warnaUtamaChandraPos,
-        child: ListView(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            ListTile(
-              leading:
-                  const Icon(Icons.shopping_bag_outlined, color: Colors.white),
-              title: const Text('POINT OF SALE',
-                  style: TextStyle(color: Colors.white)),
-              onTap: () {
-                // untuk pindah halaman
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.punch_clock, color: Colors.white),
-              title:
-                  const Text('ACTIVITY', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                // untuk pindah halaman
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings, color: Colors.white),
-              title:
-                  const Text('SETTING', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                // untuk pindah halaman
-              },
-            ),
-          ],
-        ),
-      ),
-    );
+        child: Container(
+            color: warnaUtamaChandraPos,
+            child: BlocBuilder<PenggunaBloc, PenggunaState>(
+                builder: (context, state) {
+              if (state is PenggunaLoading) {
+                if (imageFileToUpload != null) {
+                  uploadImage(imageFileToUpload!).then((value) {
+                    imageFileToUpload = null;
+
+                    context.read<PenggunaBloc>().add(UpdateDataPengguna(
+                          profilePicture: value,
+                        ));
+                  });
+                }
+                return ListView(
+                  children: [
+                    const UserAccountsDrawerHeader(
+                        accountName: Text('data'), accountEmail: Text('data')),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.shopping_bag_outlined,
+                          color: Colors.white),
+                      title: const Text('POINT OF SALE',
+                          style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        // untuk pindah halaman
+                      },
+                    ),
+                    ListTile(
+                      leading:
+                          const Icon(Icons.punch_clock, color: Colors.white),
+                      title: const Text('ACTIVITY',
+                          style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        // untuk pindah halaman
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.settings, color: Colors.white),
+                      title: const Text('SETTING',
+                          style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        // untuk pindah halaman
+                      },
+                    ),
+                  ],
+                );
+              } else {
+                return SpinKitFadingCircle(
+                  color: warnaUtamaChandraPos,
+                  size: 50,
+                );
+              }
+            })));
   }
 }
 // 
@@ -59,17 +79,17 @@ class _NavBarPageState extends State<NavBarPage> {
 // 
 // 
 // return Drawer(child:
-//         BlocBuilder<PenggunaBloc, PenggunaState>(builder: (context, state) {
-//       if (state is PenggunaLoading) {
-//         if (imageFileToUpload != null) {
-//           uploadImage(imageFileToUpload!).then((value) {
-//             imageFileToUpload = null;
+      //   BlocBuilder<PenggunaBloc, PenggunaState>(builder: (context, state) {
+      // if (state is PenggunaLoading) {
+      //   if (imageFileToUpload != null) {
+      //     uploadImage(imageFileToUpload!).then((value) {
+      //       imageFileToUpload = null;
 
-//             context.read<PenggunaBloc>().add(UpdateDataPengguna(
-//                   profilePicture: value,
-//                 ));
-//           });
-//         }
+      //       context.read<PenggunaBloc>().add(UpdateDataPengguna(
+      //             profilePicture: value,
+      //           ));
+      //     });
+      //   }
 //         return ListView(
 //           padding: EdgeInsets.zero,
 //           children: [
