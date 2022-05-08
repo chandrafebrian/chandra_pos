@@ -55,3 +55,23 @@ class OnHistoryPage extends PageState {
   @override
   List<Object> get props => [];
 }
+
+class OnReportsPage extends PageState {
+  @override
+  List<Object> get props => [];
+}
+
+class OnSettingsPage extends PageState {
+  @override
+  List<Object> get props => [];
+}
+
+class OnInventoryPage extends PageState {
+  @override
+  List<Object> get props => [];
+}
+
+class OnTableMapsPage extends PageState {
+  @override
+  List<Object> get props => [];
+}

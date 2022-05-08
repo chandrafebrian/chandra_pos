@@ -124,7 +124,9 @@ class _NavBarPageState extends State<NavBarPage> {
                     setState(() {
                       selectedIndex = 2;
                     });
+
                     // untuk pindah halaman nya
+                    context.read<PageBloc>().add(GoToTableMapsPage());
                     Navigator.of(context).pop();
                   }),
               createDrawerHalamanNavBar(
@@ -136,6 +138,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 3;
                     });
                     // untuk pindah halaman nya
+                    context.read<PageBloc>().add(GoToInventoryPage());
                     Navigator.of(context).pop();
                   }),
               createDrawerHalamanNavBar(
@@ -147,6 +150,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 4;
                     });
                     // untuk pindah halaman nya
+                    context.read<PageBloc>().add(GoToReportsPage());
                     Navigator.of(context).pop();
                   }),
               createDrawerHalamanNavBar(
@@ -158,6 +162,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 5;
                     });
                     // untuk pindah halaman nya
+                    context.read<PageBloc>().add(GoToSettingsPage());
                     Navigator.of(context).pop();
                   }),
             ],

@@ -34,6 +34,14 @@ class Wrapper extends StatelessWidget {
                                 key, state.registrationData)
                             : (state is OnHistoryPage)
                                 ? const HistoryPage()
-                                : const MainPage());
+                                : (state is OnTableMapsPage)
+                                    ? const TableMapsPage()
+                                    : (state is OnInventoryPage)
+                                        ? const InventoryPage()
+                                        : (state is OnReportsPage)
+                                            ? const ReportsPage()
+                                            : (state is OnSettingsPage)
+                                                ? const SettingsPage()
+                                                : const MainPage());
   }
 }

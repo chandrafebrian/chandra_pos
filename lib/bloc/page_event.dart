@@ -50,3 +50,23 @@ class GoToHistoryPage extends PageEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoToReportsPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class GoToSettingsPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class GoToTableMapsPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class GoToInventoryPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
