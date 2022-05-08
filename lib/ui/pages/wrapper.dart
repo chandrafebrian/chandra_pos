@@ -32,6 +32,8 @@ class Wrapper extends StatelessWidget {
                         : (state is OnAccountConfirmationPage)
                             ? AccountConfirmationPage(
                                 key, state.registrationData)
-                            : const MainPage());
+                            : (state is OnHistoryPage)
+                                ? const HistoryPage()
+                                : const MainPage());
   }
 }

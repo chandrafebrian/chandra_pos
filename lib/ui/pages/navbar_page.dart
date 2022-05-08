@@ -8,6 +8,7 @@ class NavBarPage extends StatefulWidget {
 }
 
 int selectedIndex = 0;
+PageController pageController = PageController(initialPage: selectedIndex);
 
 class _NavBarPageState extends State<NavBarPage> {
   @override
@@ -73,14 +74,14 @@ class _NavBarPageState extends State<NavBarPage> {
                         state.pengguna.namaOutlet!,
                         style: GoogleFonts.lato(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 19,
                         ),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(state.pengguna.email!,
-                          style: const TextStyle(
+                          style: GoogleFonts.lato(
                             color: Colors.white,
                             fontSize: 14,
                           )),
@@ -100,7 +101,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 0;
                     });
                     // untuk pindah halaman nya
-                    Navigator.of(context).pop();
+                    context.read<PageBloc>().add(GoToMainPage());
                   }),
               createDrawerHalamanNavBar(
                   icon: Icons.punch_clock,
@@ -111,7 +112,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 1;
                     });
                     // untuk pindah halaman nya
-                    Navigator.of(context).pop();
+                    context.read<PageBloc>().add(GoToHistoryPage());
                   }),
               createDrawerHalamanNavBar(
                   icon: Icons.inventory_2,

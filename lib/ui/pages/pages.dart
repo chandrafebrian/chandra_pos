@@ -20,3 +20,4 @@ part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
 part 'navbar_page.dart';
+part 'history_page.dart';

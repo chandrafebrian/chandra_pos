@@ -2,6 +2,8 @@ part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
+  // ini halaman Point of sale
+  // ini halaman Point of sale
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -14,7 +16,7 @@ class _MainPageState extends State<MainPage> {
       drawer: const NavBarPage(),
       appBar: AppBar(
         backgroundColor: warnaUtamaChandraPos,
-        title: const Text('Main Page'),
+        title: Text('POINT OF SALE', style: GoogleFonts.lato(fontSize: 19)),
       ),
       body: Center(
         child: ElevatedButton(

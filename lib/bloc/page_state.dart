@@ -50,3 +50,8 @@ class OnAccountConfirmationPage extends PageState {
   @override
   List<Object> get props => [];
 }
+
+class OnHistoryPage extends PageState {
+  @override
+  List<Object> get props => [];
+}

@@ -20,6 +20,8 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(OnPreferencePage(event.registrationData));
       } else if (event is GoToAccountConfirmationPage) {
         emit(OnAccountConfirmationPage(event.registrationData));
+      } else if (event is GoToHistoryPage) {
+        emit(OnHistoryPage());
       }
     });
   }

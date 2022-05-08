@@ -45,3 +45,8 @@ class GoToAccountConfirmationPage extends PageEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoToHistoryPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
