@@ -36,7 +36,7 @@ class SelectableBox extends StatelessWidget {
           color: (!isEnabeled)
               ? const Color(0xffe4e4e4)
               : isSelected
-                  ? accentColor2
+                  ? warnaUtamaChandraPos
                   : Colors.transparent,
           border: Border.all(
             color: (!isEnabeled)

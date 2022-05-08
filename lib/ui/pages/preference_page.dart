@@ -59,9 +59,9 @@ class _PreferencePageState extends State<PreferencePage> {
                             .read<PageBloc>()
                             .add(GoToRegistrationPage(widget.registrationData));
                       },
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_back,
-                        color: Color.fromARGB(255, 8, 138, 67),
+                        color: warnaUtamaChandraPos,
                       ),
                     ),
                   ),
@@ -69,7 +69,7 @@ class _PreferencePageState extends State<PreferencePage> {
                     'Pilih Tipe Kategori Usaha',
                     style: GoogleFonts.lato(
                       fontSize: 18,
-                      color: warnaUtamaChandraPos,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(
@@ -89,7 +89,7 @@ class _PreferencePageState extends State<PreferencePage> {
                 'Input Lokasi Outlet',
                 style: GoogleFonts.lato(
                   fontSize: 18,
-                  color: warnaUtamaChandraPos,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(

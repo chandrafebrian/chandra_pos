@@ -11,7 +11,7 @@ Widget createDrawerHalamanNavBar({
     color: isSelectedHalamanBar! ? const Color(0xff006622) : Colors.transparent,
     child: ListTile(
       selected: true,
-      hoverColor: Colors.red,
+      // hoverColor: Colors.red,
       title: Row(
         children: <Widget>[
           Icon(icon, color: Colors.white),
@@ -22,9 +22,12 @@ Widget createDrawerHalamanNavBar({
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               text!,
-              style: const TextStyle(fontSize: 14, color: Colors.white),
+              style: GoogleFonts.lato(
+                color: Colors.white,
+                fontSize: 16,
+              ),
             ),
-          )
+          ),
         ],
       ),
       onTap: onTap,

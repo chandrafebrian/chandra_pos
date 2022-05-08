@@ -68,10 +68,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         Center(
                           child: Text(
-                            'Create New\nAccount',
+                            'Registrasi Akun Baru',
                             style: GoogleFonts.lato(
                               fontSize: 20,
-                              color: warnaUtamaChandraPos,
+                              color: Colors.black,
                             ),
                             textAlign: TextAlign.center,
                           ),

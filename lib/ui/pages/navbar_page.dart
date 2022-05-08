@@ -71,7 +71,7 @@ class _NavBarPageState extends State<NavBarPage> {
                     children: [
                       Text(
                         state.pengguna.namaOutlet!,
-                        style: const TextStyle(
+                        style: GoogleFonts.lato(
                           color: Colors.white,
                           fontSize: 18,
                         ),
