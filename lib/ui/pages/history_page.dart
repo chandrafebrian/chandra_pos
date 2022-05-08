@@ -19,7 +19,10 @@ class _HistoryPageState extends State<HistoryPage> {
         drawer: const NavBarPage(),
         appBar: AppBar(
           backgroundColor: warnaUtamaChandraPos,
-          title: const Text('History'),
+          title: Text(
+            'History',
+            style: GoogleFonts.lato(fontSize: 19),
+          ),
         ),
       ),
     );

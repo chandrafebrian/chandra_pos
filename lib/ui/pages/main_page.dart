@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
       drawer: const NavBarPage(),
       appBar: AppBar(
         backgroundColor: warnaUtamaChandraPos,
-        title: Text('POINT OF SALE', style: GoogleFonts.lato(fontSize: 19)),
+        title: Text('Point of Sale', style: GoogleFonts.lato(fontSize: 19)),
       ),
       body: Center(
         child: ElevatedButton(

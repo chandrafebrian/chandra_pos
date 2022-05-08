@@ -102,6 +102,7 @@ class _NavBarPageState extends State<NavBarPage> {
                     });
                     // untuk pindah halaman nya
                     context.read<PageBloc>().add(GoToMainPage());
+                    Navigator.of(context).pop();
                   }),
               createDrawerHalamanNavBar(
                   icon: Icons.punch_clock,
@@ -113,10 +114,11 @@ class _NavBarPageState extends State<NavBarPage> {
                     });
                     // untuk pindah halaman nya
                     context.read<PageBloc>().add(GoToHistoryPage());
+                    Navigator.of(context).pop();
                   }),
               createDrawerHalamanNavBar(
-                  icon: Icons.inventory_2,
-                  text: 'INVENTORY',
+                  icon: Icons.table_bar,
+                  text: 'TABLE MAPS',
                   isSelectedHalamanBar: selectedIndex == 2,
                   onTap: () {
                     setState(() {
@@ -126,12 +128,34 @@ class _NavBarPageState extends State<NavBarPage> {
                     Navigator.of(context).pop();
                   }),
               createDrawerHalamanNavBar(
-                  icon: Icons.settings,
-                  text: 'SETTINGS',
+                  icon: Icons.inventory_2,
+                  text: 'INVENTORY',
                   isSelectedHalamanBar: selectedIndex == 3,
                   onTap: () {
                     setState(() {
                       selectedIndex = 3;
+                    });
+                    // untuk pindah halaman nya
+                    Navigator.of(context).pop();
+                  }),
+              createDrawerHalamanNavBar(
+                  icon: Icons.monetization_on,
+                  text: 'REPORTS',
+                  isSelectedHalamanBar: selectedIndex == 4,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = 4;
+                    });
+                    // untuk pindah halaman nya
+                    Navigator.of(context).pop();
+                  }),
+              createDrawerHalamanNavBar(
+                  icon: Icons.settings,
+                  text: 'SETTINGS',
+                  isSelectedHalamanBar: selectedIndex == 5,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = 5;
                     });
                     // untuk pindah halaman nya
                     Navigator.of(context).pop();
