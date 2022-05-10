@@ -1,5 +1,7 @@
 part of 'pages.dart';
 
+// 3. buat widget meja di table maps page dengan memanggil kerangka widget meja
+
 class TableMapsPage extends StatefulWidget {
   const TableMapsPage({Key? key}) : super(key: key);
 
@@ -26,8 +28,11 @@ class _TableMapsPageState extends State<TableMapsPage> {
         ),
         body: ListView(
           children: contohModelNilaiMejaList
-              .map((mejaidentifiermap) =>
-                  WidgetMejaCard(modelNilaiMeja: mejaidentifiermap))
+              .map((mejaidentifiermap) => Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                        defaultMargin, 10, defaultMargin, 16),
+                    child: WidgetMejaCard(modelNilaiMeja: mejaidentifiermap),
+                  ))
               .toList(),
         ),
       ),
