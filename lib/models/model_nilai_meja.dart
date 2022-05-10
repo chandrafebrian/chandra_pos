@@ -12,5 +12,12 @@ class ModelNilaiMeja extends Equatable {
   });
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [id, namaMeja, nomorMeja];
 }
+
+List<ModelNilaiMeja> contohModelNilaiMejaList = [
+  const ModelNilaiMeja(id: '0', namaMeja: 'Meja A1', nomorMeja: 5),
+  const ModelNilaiMeja(id: '1', namaMeja: 'Meja A2', nomorMeja: 6),
+  const ModelNilaiMeja(id: '2', namaMeja: 'Meja A3', nomorMeja: 7),
+  const ModelNilaiMeja(id: '3', namaMeja: 'Meja A4', nomorMeja: 8),
+];

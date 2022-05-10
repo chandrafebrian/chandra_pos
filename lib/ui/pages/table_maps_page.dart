@@ -24,6 +24,12 @@ class _TableMapsPageState extends State<TableMapsPage> {
             style: GoogleFonts.lato(fontSize: 19),
           ),
         ),
+        body: ListView(
+          children: contohModelNilaiMejaList
+              .map((mejaidentifiermap) =>
+                  WidgetMejaCard(modelNilaiMeja: mejaidentifiermap))
+              .toList(),
+        ),
       ),
     );
   }
