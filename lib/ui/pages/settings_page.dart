@@ -24,6 +24,14 @@ class _SettingsPageState extends State<SettingsPage> {
             style: GoogleFonts.lato(fontSize: 19),
           ),
         ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              AuthServices().signOut();
+            },
+            child: const Text('out'),
+          ),
+        ),
       ),
     );
   }

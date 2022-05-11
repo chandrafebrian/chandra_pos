@@ -18,14 +18,6 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: warnaUtamaChandraPos,
         title: Text('Point of Sale', style: GoogleFonts.lato(fontSize: 19)),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            AuthServices().signOut();
-          },
-          child: const Text('out'),
-        ),
-      ),
     );
   }
 }
