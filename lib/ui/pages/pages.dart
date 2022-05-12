@@ -25,3 +25,4 @@ part 'inventory_page.dart';
 part 'settings_page.dart';
 part 'reports_page.dart';
 part 'table_maps_page.dart';
+part 'create_menu_page.dart';

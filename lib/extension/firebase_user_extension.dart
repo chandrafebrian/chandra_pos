@@ -22,3 +22,5 @@ extension FirebaseUserExtension on User {
   Future<Pengguna> fromFirestoreNih() async =>
       await PenggunaServicesFirestore().getUser(uid);
 }
+
+extension FirebaseMenuUserExtension on User {}
