@@ -70,3 +70,8 @@ class GoToInventoryPage extends PageEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoToBuatMenuBaru extends PageEvent {
+  @override
+  List<Object> get props => [];
+}

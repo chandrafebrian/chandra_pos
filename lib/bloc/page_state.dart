@@ -75,3 +75,8 @@ class OnTableMapsPage extends PageState {
   @override
   List<Object> get props => [];
 }
+
+class OnBuatMenuBaru extends PageState {
+  @override
+  List<Object> get props => [];
+}

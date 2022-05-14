@@ -30,6 +30,8 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(OnInventoryPage());
       } else if (event is GoToTableMapsPage) {
         emit(OnTableMapsPage());
+      } else if (event is GoToBuatMenuBaru) {
+        emit(OnBuatMenuBaru());
       }
     });
   }

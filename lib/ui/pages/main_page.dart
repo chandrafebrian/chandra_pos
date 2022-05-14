@@ -20,7 +20,9 @@ class _MainPageState extends State<MainPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () {
+              context.read<PageBloc>().add(GoToBuatMenuBaru());
+            },
           ),
           const SizedBox(width: defaultMargin),
         ],
