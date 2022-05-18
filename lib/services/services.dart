@@ -8,3 +8,4 @@ import 'package:chandra_pos/extension/extension.dart';
 
 part 'auth_services.dart';
 part 'pengguna_services.dart';
+part 'services_menu.dart';
