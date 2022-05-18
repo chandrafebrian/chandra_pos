@@ -5,7 +5,7 @@ class PenggunaServicesFirestore {
       FirebaseFirestore.instance.collection('collectDataPenggunaFs');
 
   Future<void> updatePengguna(Pengguna pengguna) async {
-    _collectionReference.doc(pengguna.id).set({
+    await _collectionReference.doc(pengguna.id).set({
       'namaOutlet': pengguna.namaOutlet,
       'alamat': pengguna.alamat,
       'kota': pengguna.kota,
