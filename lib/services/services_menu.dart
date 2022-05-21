@@ -14,9 +14,7 @@ class ServicesMenu {
 
   Future<List<ModelMenu>> ambilDataMenuFirebase(String userId) async {
     DocumentSnapshot snapshot = await menuCollection.doc().get();
-    var documents = snapshot
-        .data()
-        .where((document) => document.data()['userID'] == userId);
+    var documents = snapshot.get((document) => document['userID'] == userId);
 
     List<ModelMenu> modelMenus = [];
     for (var document in documents) {
