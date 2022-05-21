@@ -7,20 +7,20 @@ abstract class CreatemenuEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AmbilDataMenu extends CreatemenuEvent {
+class AmbilDataMenuEvent extends CreatemenuEvent {
   final String userID;
 
-  const AmbilDataMenu(this.userID);
+  const AmbilDataMenuEvent(this.userID);
 
   @override
   List<Object> get props => [userID];
 }
 
-class TambahDataMenu extends CreatemenuEvent {
+class TambahDataMenuEvent extends CreatemenuEvent {
   final ModelMenu modelMenu;
   final String userID;
 
-  const TambahDataMenu(this.modelMenu, this.userID);
+  const TambahDataMenuEvent(this.modelMenu, this.userID);
 
   @override
   List<Object> get props => [modelMenu, userID];
