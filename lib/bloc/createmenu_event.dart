@@ -7,10 +7,10 @@ abstract class CreatemenuEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AmbilDataMenuEvent extends CreatemenuEvent {
+class AmbilDataMenudariFirebaseEvent extends CreatemenuEvent {
   final String userID;
 
-  const AmbilDataMenuEvent(this.userID);
+  const AmbilDataMenudariFirebaseEvent(this.userID);
 
   @override
   List<Object> get props => [userID];
