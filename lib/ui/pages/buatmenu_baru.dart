@@ -1,6 +1,7 @@
 part of 'pages.dart';
 
 class BuatMenuBaru extends StatefulWidget {
+  // final ModelMenu modelMenu;
   const BuatMenuBaru({Key? key}) : super(key: key);
 
   @override
