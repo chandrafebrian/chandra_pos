@@ -12,18 +12,18 @@ class ServicesMenu {
     });
   }
 
-  // Future<List<ModelMenu>> ambilDataMenuFirebase(String userId) async {
-  //   DocumentSnapshot snapshot = await menuCollection.doc().get();
-  //   var documents = snapshot.get((document) => document['userID'] == userId);
+  Future<List<ModelMenu>> ambilDataMenuFirebase(String userId) async {
+    DocumentSnapshot snapshot = await menuCollection.doc().get();
+    var documents = snapshot.get((document) => document['userID'] == userId);
 
-  //   List<ModelMenu> modelMenus = [];
-  //   for (var document in documents) {
-  //     modelMenus.add(ModelMenu(
-  //       document.data()['namaCreateMenu'],
-  //       document.data()['hargaCreateMenu'],
-  //     ));
-  //   }
+    List<ModelMenu> modelMenus = [];
+    for (var document in documents) {
+      modelMenus.add(ModelMenu(
+        document.data()['namaCreateMenu'],
+        document.data()['hargaCreateMenu'],
+      ));
+    }
 
-  //   return modelMenus;
-  // }
+    return modelMenus;
+  }
 }
