@@ -2,8 +2,8 @@ part of 'models.dart';
 // lengkah ke 1.
 
 class ModelMenu {
-  final String? namaCreateMenu;
-  final int? hargaCreateMenu;
+  String? namaCreateMenu;
+  int? hargaCreateMenu;
 
   ModelMenu({
     this.namaCreateMenu,
