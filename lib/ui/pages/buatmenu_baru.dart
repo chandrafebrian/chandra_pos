@@ -2,8 +2,7 @@ part of 'pages.dart';
 // halaman buat menu baru
 
 class BuatMenuBaru extends StatefulWidget {
-  final ModelMenu? modelMenu;
-  const BuatMenuBaru({Key? key, this.modelMenu}) : super(key: key);
+  const BuatMenuBaru({Key? key}) : super(key: key);
 
   @override
   State<BuatMenuBaru> createState() => _BuatMenuBaruState();
@@ -56,7 +55,7 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
               ),
               FloatingActionButton(
                 child: const Icon(Icons.arrow_forward),
-                onPressed: () {
+                onPressed: () async {
                   //
                   if (namaMenuController.text.length < 3 ||
                       hargaMenuController.text.length < 3) {
@@ -67,9 +66,11 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                       message: 'nama kurang dari 3 karakter',
                     ).show(context);
                   } else {
-                    widget.modelMenu!.namaCreateMenu = namaMenuController.text;
-                    widget.modelMenu!.hargaCreateMenu =
-                        int.parse(hargaMenuController.text);
+                    await ServicesMenu().menuCollection.add({
+                      'userID': context.read<PenggunaBloc>(),
+                      'namaCreateMenu': namaMenuController.text,
+                      'hargaCreateMenu': int.parse(hargaMenuController.text),
+                    });
                   }
                 },
               ),

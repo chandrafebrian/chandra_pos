@@ -33,7 +33,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       } else if (event is GoToRegistrasiMenuBaru) {
         emit(OnRegistrasiMenuBaru(event.modelMenu));
       } else if (event is GoToBuatMenuBaru) {
-        emit(OnBuatMenuBaru(event.modelMenu));
+        emit(OnBuatMenuBaru());
       }
     });
   }

@@ -28,7 +28,7 @@ class _HistoryPageState extends State<HistoryPage> {
             IconButton(
               icon: const Icon(Icons.add),
               onPressed: () {
-                context.read<PageBloc>().add(GoToBuatMenuBaru(ModelMenu()));
+                context.read<PageBloc>().add(GoToBuatMenuBaru());
               },
             ),
             const SizedBox(width: defaultMargin),
