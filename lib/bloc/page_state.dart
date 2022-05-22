@@ -86,6 +86,9 @@ class OnRegistrasiMenuBaru extends PageState {
 }
 
 class OnBuatMenuBaru extends PageState {
+  final ModelMenu modelMenu;
+
+  const OnBuatMenuBaru(this.modelMenu);
   @override
   List<Object> get props => [];
 }

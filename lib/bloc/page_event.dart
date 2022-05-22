@@ -80,6 +80,9 @@ class GoToRegistrasiMenuBaru extends PageEvent {
 }
 
 class GoToBuatMenuBaru extends PageEvent {
+  final ModelMenu modelMenu;
+
+  const GoToBuatMenuBaru(this.modelMenu);
   @override
   List<Object> get props => [];
 }

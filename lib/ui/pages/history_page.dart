@@ -1,4 +1,5 @@
 part of 'pages.dart';
+// untuk halaman menampilkan menu dari database
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -23,6 +24,15 @@ class _HistoryPageState extends State<HistoryPage> {
             'History',
             style: GoogleFonts.lato(fontSize: 19),
           ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.add),
+              onPressed: () {
+                context.read<PageBloc>().add(GoToBuatMenuBaru(ModelMenu()));
+              },
+            ),
+            const SizedBox(width: defaultMargin),
+          ],
         ),
       ),
     );
