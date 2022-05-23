@@ -20,19 +20,24 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(OnPreferencePage(event.registrationData));
       } else if (event is GoToAccountConfirmationPage) {
         emit(OnAccountConfirmationPage(event.registrationData));
-      } else if (event is GoToHistoryPage) {
-        emit(OnHistoryPage());
-      } else if (event is GoToReportsPage) {
-        emit(OnReportsPage());
-      } else if (event is GoToSettingsPage) {
-        emit(OnSettingsPage());
-      } else if (event is GoToInventoryPage) {
-        emit(OnInventoryPage());
-      } else if (event is GoToTableMapsPage) {
-        emit(OnTableMapsPage());
-      } else if (event is GoToRegistrasiMenuBaru) {
-        emit(OnRegistrasiMenuBaru(event.modelMenu));
-      } else if (event is GoToBuatMenuBaru) {
+      }
+      // else if (event is GoToHistoryPage) {
+      //   emit(OnHistoryPage());
+      // }
+      // else if (event is GoToReportsPage) {
+      //   emit(OnReportsPage());
+      // }
+      // else if (event is GoToSettingsPage) {
+      //   emit(OnSettingsPage());
+      // }
+      // else if (event is GoToInventoryPage) {
+      //   emit(OnInventoryPage());
+      // }
+      //  else if (event is GoToTableMapsPage) {
+      //   emit(OnTableMapsPage());
+      // }
+
+      else if (event is GoToBuatMenuBaru) {
         emit(OnBuatMenuBaru());
       }
     });

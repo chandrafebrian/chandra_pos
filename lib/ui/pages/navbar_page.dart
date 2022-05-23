@@ -104,67 +104,67 @@ class _NavBarPageState extends State<NavBarPage> {
                     context.read<PageBloc>().add(GoToMainPage());
                     Navigator.of(context).pop();
                   }),
-              createDrawerHalamanNavBar(
-                  icon: Icons.punch_clock,
-                  text: 'HISTORY',
-                  isSelectedHalamanBar: selectedIndex == 1,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = 1;
-                    });
-                    // untuk pindah halaman nya
-                    context.read<PageBloc>().add(GoToHistoryPage());
-                    Navigator.of(context).pop();
-                  }),
-              createDrawerHalamanNavBar(
-                  icon: Icons.table_bar,
-                  text: 'TABLE MAPS',
-                  isSelectedHalamanBar: selectedIndex == 2,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = 2;
-                    });
+              // createDrawerHalamanNavBar(
+              //     icon: Icons.punch_clock,
+              //     text: 'HISTORY',
+              //     isSelectedHalamanBar: selectedIndex == 1,
+              //     onTap: () {
+              //       setState(() {
+              //         selectedIndex = 1;
+              //       });
+              //       // untuk pindah halaman nya
+              //       context.read<PageBloc>().add(GoToHistoryPage());
+              //       Navigator.of(context).pop();
+              //     }),
+              // createDrawerHalamanNavBar(
+              //     icon: Icons.table_bar,
+              //     text: 'TABLE MAPS',
+              //     isSelectedHalamanBar: selectedIndex == 2,
+              //     onTap: () {
+              //       setState(() {
+              //         selectedIndex = 2;
+              //       });
 
-                    // untuk pindah halaman nya
-                    context.read<PageBloc>().add(GoToTableMapsPage());
-                    Navigator.of(context).pop();
-                  }),
-              createDrawerHalamanNavBar(
-                  icon: Icons.inventory_2,
-                  text: 'INVENTORY',
-                  isSelectedHalamanBar: selectedIndex == 3,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = 3;
-                    });
-                    // untuk pindah halaman nya
-                    context.read<PageBloc>().add(GoToInventoryPage());
-                    Navigator.of(context).pop();
-                  }),
-              createDrawerHalamanNavBar(
-                  icon: Icons.monetization_on,
-                  text: 'REPORTS',
-                  isSelectedHalamanBar: selectedIndex == 4,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = 4;
-                    });
-                    // untuk pindah halaman nya
-                    context.read<PageBloc>().add(GoToReportsPage());
-                    Navigator.of(context).pop();
-                  }),
-              createDrawerHalamanNavBar(
-                  icon: Icons.settings,
-                  text: 'SETTINGS',
-                  isSelectedHalamanBar: selectedIndex == 5,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = 5;
-                    });
-                    // untuk pindah halaman nya
-                    context.read<PageBloc>().add(GoToSettingsPage());
-                    Navigator.of(context).pop();
-                  }),
+              //       // untuk pindah halaman nya
+              //       context.read<PageBloc>().add(GoToTableMapsPage());
+              //       Navigator.of(context).pop();
+              //     }),
+              // createDrawerHalamanNavBar(
+              //     icon: Icons.inventory_2,
+              //     text: 'INVENTORY',
+              //     isSelectedHalamanBar: selectedIndex == 3,
+              //     onTap: () {
+              //       setState(() {
+              //         selectedIndex = 3;
+              //       });
+              //       // untuk pindah halaman nya
+              //       context.read<PageBloc>().add(GoToInventoryPage());
+              //       Navigator.of(context).pop();
+              //     }),
+              // createDrawerHalamanNavBar(
+              //     icon: Icons.monetization_on,
+              //     text: 'REPORTS',
+              //     isSelectedHalamanBar: selectedIndex == 4,
+              //     onTap: () {
+              //       setState(() {
+              //         selectedIndex = 4;
+              //       });
+              //       // untuk pindah halaman nya
+              //       context.read<PageBloc>().add(GoToReportsPage());
+              //       Navigator.of(context).pop();
+              //     }),
+              // createDrawerHalamanNavBar(
+              //     icon: Icons.settings,
+              //     text: 'SETTINGS',
+              //     isSelectedHalamanBar: selectedIndex == 5,
+              //     onTap: () {
+              //       setState(() {
+              //         selectedIndex = 5;
+              //       });
+              //       // untuk pindah halaman nya
+              //       context.read<PageBloc>().add(GoToSettingsPage());
+              //       Navigator.of(context).pop();
+              //     }),
             ],
           );
         } else {

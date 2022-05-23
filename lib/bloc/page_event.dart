@@ -46,40 +46,32 @@ class GoToAccountConfirmationPage extends PageEvent {
   List<Object> get props => [];
 }
 
-class GoToHistoryPage extends PageEvent {
-  // final ModelMenu modelMenu;
-  // const GoToHistoryPage(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}
+// class GoToHistoryPage extends PageEvent {
+//   // final ModelMenu modelMenu;
+//   // const GoToHistoryPage(this.modelMenu);
+//   @override
+//   List<Object> get props => [];
+// }
 
-class GoToReportsPage extends PageEvent {
-  @override
-  List<Object> get props => [];
-}
+// class GoToReportsPage extends PageEvent {
+//   @override
+//   List<Object> get props => [];
+// }
 
-class GoToSettingsPage extends PageEvent {
-  @override
-  List<Object> get props => [];
-}
+// class GoToSettingsPage extends PageEvent {
+//   @override
+//   List<Object> get props => [];
+// }
 
-class GoToTableMapsPage extends PageEvent {
-  @override
-  List<Object> get props => [];
-}
+// class GoToTableMapsPage extends PageEvent {
+//   @override
+//   List<Object> get props => [];
+// }
 
-class GoToInventoryPage extends PageEvent {
-  @override
-  List<Object> get props => [];
-}
-
-class GoToRegistrasiMenuBaru extends PageEvent {
-  final ModelMenu modelMenu;
-
-  const GoToRegistrasiMenuBaru(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}
+// class GoToInventoryPage extends PageEvent {
+//   @override
+//   List<Object> get props => [];
+// }
 
 class GoToBuatMenuBaru extends PageEvent {
   @override

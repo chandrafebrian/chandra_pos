@@ -51,42 +51,33 @@ class OnAccountConfirmationPage extends PageState {
   List<Object> get props => [];
 }
 
-class OnHistoryPage extends PageState {
-  // final ModelMenu modelMenu;
+// class OnHistoryPage extends PageState {
+//   // final ModelMenu modelMenu;
 
-  // const OnHistoryPage(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}
+//   // const OnHistoryPage(this.modelMenu);
+//   @override
+//   List<Object> get props => [];
+// }
 
-class OnReportsPage extends PageState {
-  @override
-  List<Object> get props => [];
-}
+// class OnReportsPage extends PageState {
+//   @override
+//   List<Object> get props => [];
+// }
 
-class OnSettingsPage extends PageState {
-  @override
-  List<Object> get props => [];
-}
+// class OnSettingsPage extends PageState {
+//   @override
+//   List<Object> get props => [];
+// }
 
-class OnInventoryPage extends PageState {
-  @override
-  List<Object> get props => [];
-}
+// class OnInventoryPage extends PageState {
+//   @override
+//   List<Object> get props => [];
+// }
 
-class OnTableMapsPage extends PageState {
-  @override
-  List<Object> get props => [];
-}
-
-class OnRegistrasiMenuBaru extends PageState {
-  final ModelMenu modelMenu;
-
-  const OnRegistrasiMenuBaru(this.modelMenu);
-
-  @override
-  List<Object> get props => [];
-}
+// class OnTableMapsPage extends PageState {
+//   @override
+//   List<Object> get props => [];
+// }
 
 class OnBuatMenuBaru extends PageState {
   // final ModelMenu modelMenu;

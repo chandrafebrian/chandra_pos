@@ -32,18 +32,22 @@ class Wrapper extends StatelessWidget {
                         : (state is OnAccountConfirmationPage)
                             ? AccountConfirmationPage(
                                 key, state.registrationData)
-                            : (state is OnHistoryPage)
-                                ? const HistoryPage()
-                                : (state is OnTableMapsPage)
-                                    ? const TableMapsPage()
-                                    : (state is OnInventoryPage)
-                                        ? const InventoryPage()
-                                        : (state is OnReportsPage)
-                                            ? const ReportsPage()
-                                            : (state is OnSettingsPage)
-                                                ? const SettingsPage()
-                                                : (state is OnBuatMenuBaru)
-                                                    ? const BuatMenuBaru()
-                                                    : const MainPage());
+                            :
+                            // (state is OnHistoryPage)
+                            //     ? const HistoryPage()
+                            //     : (state is OnTableMapsPage)
+                            //         ? const TableMapsPage()
+                            //         : (state is OnInventoryPage)
+                            //             ? const InventoryPage()
+                            //             : (state is OnReportsPage)
+                            //                 ? const ReportsPage()
+                            //                 : (state is OnSettingsPage)
+                            //                     ? const SettingsPage()
+                            //                     :
+                            (state is OnBuatMenuBaru)
+                                ? const BuatMenuBaru()
+                                : (state is OnMainPage)
+                                    ? const MainPage()
+                                    : Container());
   }
 }
