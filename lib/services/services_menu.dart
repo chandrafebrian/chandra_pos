@@ -1,29 +1,29 @@
 part of 'services.dart';
 
 class ServicesMenu {
-  final CollectionReference menuCollection =
+  static CollectionReference menuCollection =
       FirebaseFirestore.instance.collection('collectDataMenuFs');
 
   Future<void> saveMenukefirebase(String id, ModelMenu modelMenu) async {
     await menuCollection.doc().set({
-      'userID': id,
+      'userID': modelMenu.userID,
       'namaCreateMenu': modelMenu.namaCreateMenu,
       'hargaCreateMenu': modelMenu.hargaCreateMenu,
     });
   }
 
-  Future<List<ModelMenu>> ambilDataMenuFirebase(String userId) async {
+  Future<List<ModelMenu>> ambilDataMenuFirebase(String userID) async {
     DocumentSnapshot snapshot = await menuCollection.doc().get();
-    var documents = snapshot.get((document) => document['userID'] == userId);
 
-    List<ModelMenu> modelMenus = [];
-    for (var document in documents) {
-      modelMenus.add(ModelMenu(
-        document.data()['namaCreateMenu'],
-        document.data()['hargaCreateMenu'],
-      ));
-    }
+    var documents =
+        snapshot.get((document) => document.data()['userID'] == userID);
 
-    return modelMenus;
+    return documents
+        .map((e) => ModelMenu(
+              userID: e.data()['userID'],
+              namaCreateMenu: e.data()['namaCreateMenu'],
+              hargaCreateMenu: e.data()['hargaCreateMenu'],
+            ))
+        .toList();
   }
 }

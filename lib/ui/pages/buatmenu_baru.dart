@@ -2,8 +2,12 @@ part of 'pages.dart';
 // halaman buat menu baru
 
 class BuatMenuBaru extends StatelessWidget {
-  final ModelMenu? modelMenu;
-  const BuatMenuBaru({Key? key, this.modelMenu}) : super(key: key);
+  final ModelMenu modelMenu;
+  const BuatMenuBaru(
+      {Key? key,
+      this.modelMenu =
+          const ModelMenu(userID: '', namaCreateMenu: '', hargaCreateMenu: '')})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,65 +20,59 @@ class BuatMenuBaru extends StatelessWidget {
         return false;
       },
       child: Scaffold(
-        body: FutureBuilder(
-          future: modelMenu == null ? processingTicketOrder(context) : null,
-          builder: (_, state) => (state.connectionState == ConnectionState.done)
-              ? Column(
-                  children: [
-                    TextField(
-                      controller: namaMenuController,
-                      decoration: InputDecoration(
-                        hintText: 'Nama Menu',
-                        hintStyle: GoogleFonts.lato(fontSize: 20),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextField(
-                      controller: hargaMenuController,
-                      decoration: InputDecoration(
-                        hintText: 'Harga Menu',
-                        hintStyle: GoogleFonts.lato(fontSize: 20),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    FloatingActionButton(
-                      child: const Icon(Icons.arrow_forward),
-                      onPressed: () async {
-                        //
-                        if (namaMenuController.text.length < 3 ||
-                            hargaMenuController.text.length < 3) {
-                          Flushbar(
-                            backgroundColor: Colors.pink,
-                            duration: const Duration(milliseconds: 1000),
-                            flushbarPosition: FlushbarPosition.TOP,
-                            message: 'nama kurang dari 3 karakter',
-                          ).show(context);
-                        } else {
-                          //
-
-                        }
-                      },
-                    ),
-                  ],
-                  //
-                )
-              : const Center(
-                  child: SpinKitFadingCircle(
-                    color: Colors.red,
-                    size: 50,
-                  ),
-                ),
-        ),
-      ),
+          body: Column(
+        children: [
+          TextField(
+            controller: namaMenuController,
+            decoration: InputDecoration(
+              hintText: 'Nama Menu',
+              hintStyle: GoogleFonts.lato(fontSize: 20),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            controller: hargaMenuController,
+            decoration: InputDecoration(
+              hintText: 'Harga Menu',
+              hintStyle: GoogleFonts.lato(fontSize: 20),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          FloatingActionButton(
+            child: const Icon(Icons.arrow_forward),
+            onPressed: () async {
+              //
+              if (namaMenuController.text.length < 3 ||
+                  hargaMenuController.text.length < 3) {
+                Flushbar(
+                  backgroundColor: Colors.pink,
+                  duration: const Duration(milliseconds: 1000),
+                  flushbarPosition: FlushbarPosition.TOP,
+                  message: 'nama kurang dari 3 karakter',
+                ).show(context);
+              } else {
+                //
+                await ServicesMenu().saveMenukefirebase(
+                    modelMenu.userID,
+                    ModelMenu(
+                        userID: modelMenu.userID,
+                        namaCreateMenu: namaMenuController.text,
+                        hargaCreateMenu: hargaMenuController.text));
+              }
+            },
+          ),
+        ],
+        //
+      )),
     );
   }
 
-  Future<void> processingTicketOrder(BuildContext context) async {
-    // await ServicesMenu().saveMenukefirebase();
-  }
+  // Future<void> processingTicketOrder(BuildContext context) async {
+  //   await ServicesMenu().saveMenukefirebase(modelMenu);
+  // }
 }

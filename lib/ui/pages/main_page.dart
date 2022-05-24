@@ -1,7 +1,8 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  final ModelMenu? modelMenu;
+  const MainPage({Key? key, this.modelMenu}) : super(key: key);
   // ini halaman Point of sale
   // ini halaman Point of sale
 
