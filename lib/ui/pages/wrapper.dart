@@ -15,6 +15,9 @@ class Wrapper extends StatelessWidget {
     } else {
       if (previousPageEvent is! GoToMainPage) {
         context.read<PenggunaBloc>().add(PenggunaMasuk(user.uid));
+        context
+            .read()<CreatemenuBloc>()
+            .add(AmbilDataMenudariFirebaseEvent(user.uid));
         previousPageEvent = GoToMainPage();
         context.read<PageBloc>().add(previousPageEvent!);
       }
@@ -45,9 +48,9 @@ class Wrapper extends StatelessWidget {
                             //                     ? const SettingsPage()
                             //                     :
                             (state is OnBuatMenuBaru)
-                                ? const BuatMenuBaru()
+                                ? BuatMenuBaru(key, state.modelMenu)
                                 : (state is OnMainPage)
-                                    ? const MainPage()
+                                    ? MainPage(key, state.modelMenu)
                                     : Container());
   }
 }

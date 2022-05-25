@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => PageBloc()),
           BlocProvider(create: (_) => PenggunaBloc()),
           BlocProvider(create: (_) => ThemeBloc()),
-          // BlocProvider(create: (_) => CreatemenuBloc()),
+          BlocProvider(create: (_) => CreatemenuBloc()),
         ],
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) => MaterialApp(

@@ -13,7 +13,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       } else if (event is GoToSplashPage) {
         emit(OnSplashPage());
       } else if (event is GoToMainPage) {
-        emit(OnMainPage());
+        emit(OnMainPage(event.modelMenu));
       } else if (event is GoToRegistrationPage) {
         emit(OnRegistrationPage(event.registrationData));
       } else if (event is GoToPreferencePage) {
@@ -38,7 +38,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       // }
 
       else if (event is GoToBuatMenuBaru) {
-        emit(OnBuatMenuBaru());
+        emit(OnBuatMenuBaru(event.modelMenu));
       }
     });
   }

@@ -12,11 +12,11 @@ class ServicesMenu {
     });
   }
 
-  Future<List<ModelMenu>> ambilDataMenuFirebase(String userID) async {
+  Future<List<ModelMenu>> ambilDataMenuFirebase(String userid) async {
     DocumentSnapshot snapshot = await menuCollection.doc().get();
 
     var documents =
-        snapshot.get((document) => document.data()['userID'] == userID);
+        snapshot.get((document) => document.data()['userID'] == userid);
 
     List<ModelMenu> modelMenus = [];
     for (var document in documents) {
