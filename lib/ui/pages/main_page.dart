@@ -28,6 +28,12 @@ class _MainPageState extends State<MainPage> {
           const SizedBox(width: defaultMargin),
         ],
       ),
+      body: const SizedBox(
+        height: 30,
+        child: Center(
+          child: Text(''),
+        ),
+      ),
     );
   }
 }

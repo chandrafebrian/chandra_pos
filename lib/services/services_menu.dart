@@ -4,7 +4,7 @@ class ServicesMenu {
   static CollectionReference menuCollection =
       FirebaseFirestore.instance.collection('collectDataMenuFs');
 
-  Future<void> saveMenukefirebase(String id, ModelMenu modelMenu) async {
+  Future<void> saveMenukefirebase(ModelMenu modelMenu) async {
     await menuCollection.doc().set({
       'userID': modelMenu.userID,
       'namaCreateMenu': modelMenu.namaCreateMenu,
