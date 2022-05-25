@@ -4,9 +4,9 @@ class ServicesMenu {
   static CollectionReference menuCollection =
       FirebaseFirestore.instance.collection('collectDataMenuFs');
 
-  Future<void> saveMenukefirebase(ModelMenu modelMenu) async {
+  Future<void> saveMenukefirebase(String id, ModelMenu modelMenu) async {
     await menuCollection.doc().set({
-      'userID': modelMenu.userID,
+      'userID': id,
       'namaCreateMenu': modelMenu.namaCreateMenu,
       'hargaCreateMenu': modelMenu.hargaCreateMenu,
     });
@@ -18,12 +18,13 @@ class ServicesMenu {
     var documents =
         snapshot.get((document) => document.data()['userID'] == userID);
 
-    return documents
-        .map((e) => ModelMenu(
-              userID: e.data()['userID'],
-              namaCreateMenu: e.data()['namaCreateMenu'],
-              hargaCreateMenu: e.data()['hargaCreateMenu'],
-            ))
-        .toList();
+    List<ModelMenu> modelMenus = [];
+    for (var document in documents) {
+      modelMenus.add(ModelMenu(
+        document.data()['namaCreateMenu'],
+        document.data()['hargaCreateMenu'],
+      ));
+    }
+    return modelMenus;
   }
 }
