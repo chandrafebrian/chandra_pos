@@ -1,7 +1,8 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  final ModelMenu modelMenu;
+  const MainPage(Key? key, this.modelMenu) : super(key: key);
   // ini halaman Point of sale
   // ini halaman Point of sale
 
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              context.read<PageBloc>().add(GoToBuatMenuBaru());
+              context.read<PageBloc>().add(GoToBuatMenuBaru(widget.modelMenu));
             },
           ),
           const SizedBox(width: defaultMargin),

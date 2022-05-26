@@ -23,6 +23,8 @@ class OnSplashPage extends PageState {
 }
 
 class OnMainPage extends PageState {
+  final ModelMenu modelMenu;
+  const OnMainPage(this.modelMenu);
   @override
   List<Object> get props => [];
 }
@@ -47,6 +49,14 @@ class OnAccountConfirmationPage extends PageState {
   final RegistrationData registrationData;
 
   const OnAccountConfirmationPage(this.registrationData);
+  @override
+  List<Object> get props => [];
+}
+
+class OnRegistrasiMenuBaru extends PageState {
+  final ModelMenu modelMenu;
+
+  const OnRegistrasiMenuBaru(this.modelMenu);
   @override
   List<Object> get props => [];
 }
@@ -80,9 +90,9 @@ class OnAccountConfirmationPage extends PageState {
 // }
 
 class OnBuatMenuBaru extends PageState {
-  // final ModelMenu modelMenu;
+  final ModelMenu modelMenu;
 
-  // const OnBuatMenuBaru(this.modelMenu);
+  const OnBuatMenuBaru(this.modelMenu);
   @override
   List<Object> get props => [];
 }

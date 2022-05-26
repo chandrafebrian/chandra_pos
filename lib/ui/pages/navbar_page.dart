@@ -101,7 +101,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 0;
                     });
                     // untuk pindah halaman nya
-                    context.read<PageBloc>().add(GoToMainPage());
+                    context.read<PageBloc>().add(GoToMainPage(ModelMenu()));
                     Navigator.of(context).pop();
                   }),
               // createDrawerHalamanNavBar(
