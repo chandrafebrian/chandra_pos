@@ -1,8 +1,7 @@
 part of 'pages.dart';
 
 class NavBarPage extends StatefulWidget {
-  final ModelMenu modelMenu;
-  const NavBarPage(Key? key, this.modelMenu) : super(key: key);
+  const NavBarPage({Key? key}) : super(key: key);
 
   @override
   State<NavBarPage> createState() => _NavBarPageState();
@@ -102,9 +101,7 @@ class _NavBarPageState extends State<NavBarPage> {
                       selectedIndex = 0;
                     });
                     // untuk pindah halaman nya
-                    context
-                        .read<PageBloc>()
-                        .add(GoToMainPage(widget.modelMenu));
+                    context.read<PageBloc>().add(GoToMainPage());
                     Navigator.of(context).pop();
                   }),
               // createDrawerHalamanNavBar(

@@ -15,9 +15,9 @@ class Wrapper extends StatelessWidget {
     } else {
       if (previousPageEvent is! GoToMainPage) {
         context.read<PenggunaBloc>().add(PenggunaMasuk(user.uid));
-        context
-            .read()<CreatemenuBloc>()
-            .add(AmbilDataMenudariFirebaseEvent(user.uid));
+        // context
+        //     .read()<CreatemenuBloc>()
+        //     .add(AmbilDataMenudariFirebaseEvent(user.uid));
         previousPageEvent = GoToMainPage();
         context.read<PageBloc>().add(previousPageEvent!);
       }
@@ -48,9 +48,9 @@ class Wrapper extends StatelessWidget {
                             //                     ? const SettingsPage()
                             //                     :
                             (state is OnBuatMenuBaru)
-                                ? BuatMenuBaru(key, state.modelMenu)
+                                ? const BuatMenuBaru()
                                 : (state is OnMainPage)
-                                    ? MainPage(key, state.modelMenu)
+                                    ? const MainPage()
                                     : Container());
   }
 }
