@@ -20,6 +20,7 @@ class Wrapper extends StatelessWidget {
         //     .read()<CreatemenuBloc>()
         //     .add(AmbilDataMenudariFirebaseEvent(user.uid));
         previousPageEvent = GoToMainPage(ModelMenu());
+
         context.read<PageBloc>().add(previousPageEvent!);
       }
     }
