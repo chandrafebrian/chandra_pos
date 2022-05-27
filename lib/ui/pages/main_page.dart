@@ -27,10 +27,15 @@ class _MainPageState extends State<MainPage> {
         //   const SizedBox(width: defaultMargin),
         // ],
       ),
-      body: const SizedBox(
+      body: SizedBox(
         height: 30,
         child: Center(
-          child: Text(''),
+          child: ElevatedButton(
+            onPressed: () {
+              AuthServices().signOut();
+            },
+            child: const Text('out'),
+          ),
         ),
       ),
     );
