@@ -19,7 +19,7 @@ class Wrapper extends StatelessWidget {
         // context
         //     .read()<CreatemenuBloc>()
         //     .add(AmbilDataMenudariFirebaseEvent(user.uid));
-        previousPageEvent = GoToMainPage(ModelMenu());
+        previousPageEvent = GoToMainPage();
 
         context.read<PageBloc>().add(previousPageEvent!);
       }
@@ -52,7 +52,7 @@ class Wrapper extends StatelessWidget {
                             (state is OnBuatMenuBaru)
                                 ? BuatMenuBaru(key, state.modelMenu)
                                 : (state is OnMainPage)
-                                    ? MainPage(key, state.modelMenu)
+                                    ? const MainPage()
                                     : Container());
   }
 }

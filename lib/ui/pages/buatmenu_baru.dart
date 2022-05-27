@@ -12,7 +12,7 @@ class BuatMenuBaru extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        context.read<PageBloc>().add(GoToMainPage(modelMenu));
+        context.read<PageBloc>().add(GoToMainPage());
         return false;
       },
       child: Scaffold(

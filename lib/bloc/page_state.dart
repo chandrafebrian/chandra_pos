@@ -23,8 +23,6 @@ class OnSplashPage extends PageState {
 }
 
 class OnMainPage extends PageState {
-  final ModelMenu modelMenu;
-  const OnMainPage(this.modelMenu);
   @override
   List<Object> get props => [];
 }

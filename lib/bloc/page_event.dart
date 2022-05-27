@@ -18,9 +18,6 @@ class GoToSplashPage extends PageEvent {
 }
 
 class GoToMainPage extends PageEvent {
-  final ModelMenu modelMenu;
-
-  const GoToMainPage(this.modelMenu);
   @override
   List<Object> get props => [];
 }

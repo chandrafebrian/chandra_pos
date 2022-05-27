@@ -1,8 +1,7 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
-  final ModelMenu modelMenu;
-  const MainPage(Key? key, this.modelMenu) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
   // ini halaman Point of sale
   // ini halaman Point of sale
 
@@ -14,19 +13,19 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavBarPage(),
+      // drawer: const NavBarPage(),
       appBar: AppBar(
         backgroundColor: warnaUtamaChandraPos,
         title: Text('Point of Sale', style: GoogleFonts.lato(fontSize: 19)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {
-              context.read<PageBloc>().add(GoToBuatMenuBaru(widget.modelMenu));
-            },
-          ),
-          const SizedBox(width: defaultMargin),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.add),
+        //     onPressed: () {
+        //       context.read<PageBloc>().add(GoToBuatMenuBaru());
+        //     },
+        //   ),
+        //   const SizedBox(width: defaultMargin),
+        // ],
       ),
       body: const SizedBox(
         height: 30,

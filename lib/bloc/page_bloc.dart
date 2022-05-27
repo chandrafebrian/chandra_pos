@@ -13,7 +13,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       } else if (event is GoToSplashPage) {
         emit(OnSplashPage());
       } else if (event is GoToMainPage) {
-        emit(OnMainPage(event.modelMenu));
+        emit(OnMainPage());
       } else if (event is GoToRegistrationPage) {
         emit(OnRegistrationPage(event.registrationData));
       } else if (event is GoToPreferencePage) {
