@@ -46,13 +46,7 @@ class GoToAccountConfirmationPage extends PageEvent {
   List<Object> get props => [];
 }
 
-class GoToRegistrasiMenuBaru extends PageEvent {
-  final ModelMenu modelMenu;
 
-  const GoToRegistrasiMenuBaru(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}
 
 // class GoToHistoryPage extends PageEvent {
 //   // final ModelMenu modelMenu;
@@ -81,10 +75,3 @@ class GoToRegistrasiMenuBaru extends PageEvent {
 //   List<Object> get props => [];
 // }
 
-class GoToBuatMenuBaru extends PageEvent {
-  final ModelMenu modelMenu;
-
-  const GoToBuatMenuBaru(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}

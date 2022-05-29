@@ -51,13 +51,7 @@ class OnAccountConfirmationPage extends PageState {
   List<Object> get props => [];
 }
 
-class OnRegistrasiMenuBaru extends PageState {
-  final ModelMenu modelMenu;
 
-  const OnRegistrasiMenuBaru(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}
 
 // class OnHistoryPage extends PageState {
 //   // final ModelMenu modelMenu;
@@ -87,10 +81,4 @@ class OnRegistrasiMenuBaru extends PageState {
 //   List<Object> get props => [];
 // }
 
-class OnBuatMenuBaru extends PageState {
-  final ModelMenu modelMenu;
 
-  const OnBuatMenuBaru(this.modelMenu);
-  @override
-  List<Object> get props => [];
-}

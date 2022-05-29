@@ -20,8 +20,6 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(OnPreferencePage(event.registrationData));
       } else if (event is GoToAccountConfirmationPage) {
         emit(OnAccountConfirmationPage(event.registrationData));
-      } else if (event is GoToRegistrasiMenuBaru) {
-        emit(OnRegistrasiMenuBaru(event.modelMenu));
       }
       // else if (event is GoToHistoryPage) {
       //   emit(OnHistoryPage());
@@ -38,10 +36,6 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       //  else if (event is GoToTableMapsPage) {
       //   emit(OnTableMapsPage());
       // }
-
-      else if (event is GoToBuatMenuBaru) {
-        emit(OnBuatMenuBaru(event.modelMenu));
-      }
     });
   }
 }

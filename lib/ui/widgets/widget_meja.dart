@@ -1,6 +1,6 @@
 part of 'widgets.dart';
 
-// 2. buat widget kerangka meja ambil nilai dari model
+// 2. buat widget kerangka template meja ambil nilai dari model
 
 class WidgetMejaCard extends StatelessWidget {
   final ModelNilaiMeja modelNilaiMeja;
