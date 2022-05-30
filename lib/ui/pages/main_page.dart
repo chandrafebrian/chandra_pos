@@ -21,6 +21,7 @@ class _MainPageState extends State<MainPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
+              context.read<PageBloc>().add(GoToHalamanMenu());
               // isi untuk halaman buat menu baru
             },
           ),

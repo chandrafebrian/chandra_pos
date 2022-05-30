@@ -36,6 +36,9 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       //  else if (event is GoToTableMapsPage) {
       //   emit(OnTableMapsPage());
       // }
+      else if (event is GoToHalamanMenu) {
+        emit(OnHalamanMenu());
+      }
     });
   }
 }

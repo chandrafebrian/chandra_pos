@@ -19,7 +19,7 @@ part 'sign_up.dart';
 part 'account_confirmation.dart';
 part 'preference_page.dart';
 // part 'navbar_page.dart';
-part 'history_page.dart';
+// part 'history_page.dart';
 // part 'inventory_page.dart';
 // part 'settings_page.dart';
 // part 'reports_page.dart';

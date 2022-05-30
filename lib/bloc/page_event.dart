@@ -46,8 +46,6 @@ class GoToAccountConfirmationPage extends PageEvent {
   List<Object> get props => [];
 }
 
-
-
 // class GoToHistoryPage extends PageEvent {
 //   // final ModelMenu modelMenu;
 //   // const GoToHistoryPage(this.modelMenu);
@@ -75,3 +73,7 @@ class GoToAccountConfirmationPage extends PageEvent {
 //   List<Object> get props => [];
 // }
 
+class GoToHalamanMenu extends PageEvent {
+  @override
+  List<Object> get props => [];
+}

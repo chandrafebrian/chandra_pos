@@ -51,8 +51,6 @@ class OnAccountConfirmationPage extends PageState {
   List<Object> get props => [];
 }
 
-
-
 // class OnHistoryPage extends PageState {
 //   // final ModelMenu modelMenu;
 
@@ -81,4 +79,7 @@ class OnAccountConfirmationPage extends PageState {
 //   List<Object> get props => [];
 // }
 
-
+class OnHalamanMenu extends PageState {
+  @override
+  List<Object> get props => [];
+}
