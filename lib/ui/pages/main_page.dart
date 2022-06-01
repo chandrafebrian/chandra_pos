@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  final BaruModelMenu? baruModelMenu;
+  const MainPage({Key? key, this.baruModelMenu}) : super(key: key);
   // ini halaman Point of sale
   // ini halaman Point of sale
 
@@ -21,7 +24,9 @@ class _MainPageState extends State<MainPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              context.read<PageBloc>().add(GoToHalamanMenu());
+              context
+                  .read<PageBloc>()
+                  .add(GoToHalamanMenu(widget.baruModelMenu as BaruModelMenu));
               // isi untuk halaman buat menu baru
             },
           ),

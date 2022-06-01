@@ -38,7 +38,7 @@ class Wrapper extends StatelessWidget {
                             ? AccountConfirmationPage(
                                 key, state.registrationData)
                             : (state is OnHalamanMenu)
-                                ? const BuatMenuBaru()
+                                ? BuatMenuBaru(key, state.baruModelMenu)
                                 :
                                 // (state is OnHistoryPage)
                                 //     ? const HistoryPage()

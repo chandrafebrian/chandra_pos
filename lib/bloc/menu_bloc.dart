@@ -9,8 +9,7 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
   MenuBloc() : super(const MenuState([])) {
     on<MenuEvent>((event, emit) async {
       if (event is SaveMenuEvent) {
-        await ServicesMenu()
-            .saveMenukefirebase(event.userID, event.baruModelMenu);
+        await ServicesMenu().saveMenukefirebase(event.baruModelMenu);
 
         List<BaruModelMenu> baruModelMenus =
             state.baruModelMenus + [event.baruModelMenu];
