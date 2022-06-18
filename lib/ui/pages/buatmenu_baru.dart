@@ -1,15 +1,21 @@
 part of 'pages.dart';
 // halaman buat menu baru
 
-class BuatMenuBaru extends StatelessWidget {
+class BuatMenuBaru extends StatefulWidget {
   // final BaruModelMenu baruModelMenu;
-  const BuatMenuBaru({Key? key}) : super(key: key);
+  const BuatMenuBaru({Key? key, this.email = ''}) : super(key: key);
+  final String email;
+
+  @override
+  State<BuatMenuBaru> createState() => _BuatMenuBaruState();
+}
+
+class _BuatMenuBaruState extends State<BuatMenuBaru> {
+  TextEditingController namaMenuController = TextEditingController();
+  TextEditingController hargaMenuController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController namaMenuController = TextEditingController();
-    TextEditingController hargaMenuController = TextEditingController();
-
     return WillPopScope(
       onWillPop: () async {
         context.read<PageBloc>().add(GoToMainPage());
@@ -55,12 +61,19 @@ class BuatMenuBaru extends StatelessWidget {
                       message: 'nama kurang dari 3 karakter',
                     ).show(context);
                   } else {
+                    ServicesMenu.menuCollection.add({
+                      'email': '',
+                      'namaBarang': namaMenuController.text,
+                      'hargaBarang': hargaMenuController.text,
+                    });
                     // ServicesMenu().saveMenukefirebase(BaruModelMenu(
                     //     pengguna.email!,
                     //     pengguna.id,
                     //     namaMenuController.text,
                     //     hargaMenuController.text.toString().length));
 
+                    namaMenuController.text = '';
+                    hargaMenuController.text = '';
                   }
                 },
               ),
@@ -71,8 +84,4 @@ class BuatMenuBaru extends StatelessWidget {
       ),
     );
   }
-
-  // Future<void> processingTicketOrder(BuildContext context) async {
-  //   await ServicesMenu().saveMenukefirebase(modelMenu);
-  // }
 }
