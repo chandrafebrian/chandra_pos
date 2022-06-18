@@ -4,11 +4,12 @@ class ServicesMenu {
   static CollectionReference menuCollection =
       FirebaseFirestore.instance.collection('collectMenus');
 
-  Future<void> saveMenukefirebase(BaruModelMenu baruModelMenu) async {
+  Future<void> saveMenukefirebase(Pengguna pengguna) async {
     await menuCollection.add({
-      'userID': baruModelMenu.userID,
-      'namaBarang': baruModelMenu.namaBarang,
-      'hargaBarang': baruModelMenu.hargaBarang,
+      'email': pengguna.email,
+      // 'userID': baruModelMenu.userID,
+      // 'namaBarang': baruModelMenu.namaBarang,
+      // 'hargaBarang': baruModelMenu.hargaBarang,
     });
   }
 
@@ -22,6 +23,7 @@ class ServicesMenu {
 
     for (var documentDariFirebase in documents) {
       baruModelMenu.add(BaruModelMenu(
+        documentDariFirebase.data()['email'],
         documentDariFirebase.data()['userID'],
         documentDariFirebase.data()['namaBarang'],
         documentDariFirebase.data()['hargaBarang'],

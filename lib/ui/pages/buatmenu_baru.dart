@@ -17,7 +17,7 @@ class BuatMenuBaru extends StatelessWidget {
       },
       child: BlocBuilder<PenggunaBloc, PenggunaState>(
         builder: (context, state) {
-          Pengguna pengguna = (state as PenggunaLoading).pengguna;
+          // Pengguna pengguna = (state as PenggunaLoading).pengguna;
           return Scaffold(
               body: Column(
             children: [
@@ -55,11 +55,12 @@ class BuatMenuBaru extends StatelessWidget {
                       message: 'nama kurang dari 3 karakter',
                     ).show(context);
                   } else {
-                    ServicesMenu().saveMenukefirebase(BaruModelMenu(
-                        pengguna.id,
-                        namaMenuController.text,
-                        hargaMenuController.text.toString().length));
-                    //, namaBarang, hargaBarang));
+                    // ServicesMenu().saveMenukefirebase(BaruModelMenu(
+                    //     pengguna.email!,
+                    //     pengguna.id,
+                    //     namaMenuController.text,
+                    //     hargaMenuController.text.toString().length));
+
                   }
                 },
               ),
