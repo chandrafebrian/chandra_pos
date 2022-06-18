@@ -80,8 +80,8 @@ class OnAccountConfirmationPage extends PageState {
 // }
 
 class OnHalamanMenu extends PageState {
-  final BaruModelMenu baruModelMenu;
-  const OnHalamanMenu(this.baruModelMenu);
+  // final BaruModelMenu baruModelMenu;
+  // const OnHalamanMenu(this.baruModelMenu);
   @override
-  List<Object> get props => [baruModelMenu];
+  List<Object> get props => [];
 }

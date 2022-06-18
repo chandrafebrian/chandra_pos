@@ -2,8 +2,8 @@ part of 'pages.dart';
 // halaman buat menu baru
 
 class BuatMenuBaru extends StatelessWidget {
-  final BaruModelMenu baruModelMenu;
-  const BuatMenuBaru(Key? key, this.baruModelMenu) : super(key: key);
+  // final BaruModelMenu baruModelMenu;
+  const BuatMenuBaru({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
