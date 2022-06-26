@@ -37,7 +37,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       //   emit(OnTableMapsPage());
       // }
       else if (event is GoToHalamanMenu) {
-        emit(OnHalamanMenu());
+        emit(OnHalamanMenu(event.baruModelMenu));
       }
     });
   }

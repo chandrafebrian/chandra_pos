@@ -22,7 +22,7 @@ class _MainPageState extends State<MainPage> {
         actions: [
           IconButton(
             onPressed: () {
-              context.read<PageBloc>().add(GoToHalamanMenu());
+              context.read<PageBloc>().add(GoToHalamanMenu(BaruModelMenu()));
             },
             icon: Icon(
               Icons.add,

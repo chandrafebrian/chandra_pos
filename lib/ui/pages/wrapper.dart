@@ -52,7 +52,7 @@ class Wrapper extends StatelessWidget {
                                 //                     ? const SettingsPage()
                                 //                     :
                                 (state is OnHalamanMenu)
-                                    ? const BuatMenuBaru()
+                                    ? BuatMenuBaru(key, state.baruModelMenu)
                                     : Container());
   }
 }

@@ -2,7 +2,9 @@ part of 'pages.dart';
 // halaman buat menu baru
 
 class BuatMenuBaru extends StatefulWidget {
-  const BuatMenuBaru({Key? key}) : super(key: key);
+  final BaruModelMenu baruModelMenu;
+
+  const BuatMenuBaru(Key? key, this.baruModelMenu) : super(key: key);
 
   @override
   State<BuatMenuBaru> createState() => _BuatMenuBaruState();
@@ -60,9 +62,10 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                     ).show(context);
                   } else {
                     ServicesMenu.menuCollection.add({
-                      'email': '',
-                      'namaBarang': namaMenuController.text,
-                      'hargaBarang': hargaMenuController.text,
+                      'nama': widget.baruModelMenu.namaBarang =
+                          namaMenuController.text,
+                      'harga': widget.baruModelMenu.hargaBarang =
+                          int.parse(hargaMenuController.text),
                     });
 
                     namaMenuController.text = '';

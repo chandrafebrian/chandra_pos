@@ -74,6 +74,9 @@ class GoToAccountConfirmationPage extends PageEvent {
 // }
 
 class GoToHalamanMenu extends PageEvent {
+  final BaruModelMenu baruModelMenu;
+
+  const GoToHalamanMenu(this.baruModelMenu);
   @override
   List<Object> get props => [];
 }

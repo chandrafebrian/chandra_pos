@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chandra_pos/models/models.dart';
-import 'package:chandra_pos/services/services.dart';
+
 import 'package:equatable/equatable.dart';
 part 'menu_event.dart';
 part 'menu_state.dart';
@@ -15,12 +15,13 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
         //     state.baruModelMenus + [event.baruModelMenu];
 
         // emit(MenuState(baruModelMenus));
-      } else if (event is GetMenuEvent) {
-        List<BaruModelMenu> baruModelMenus =
-            await ServicesMenu().ambilDataMenuFirebase(event.userID);
-
-        emit(MenuState(baruModelMenus));
       }
+      // else if (event is GetMenuEvent) {
+      //   List<BaruModelMenu> baruModelMenus =
+      //       await ServicesMenu().ambilDataMenuFirebase(event.userID);
+
+      //   emit(MenuState(baruModelMenus));
+      // }
     });
   }
 }
