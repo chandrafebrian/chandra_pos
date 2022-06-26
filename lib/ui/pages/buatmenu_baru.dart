@@ -2,9 +2,7 @@ part of 'pages.dart';
 // halaman buat menu baru
 
 class BuatMenuBaru extends StatefulWidget {
-  // final BaruModelMenu baruModelMenu;
-  const BuatMenuBaru({Key? key, this.email = ''}) : super(key: key);
-  final String email;
+  const BuatMenuBaru({Key? key}) : super(key: key);
 
   @override
   State<BuatMenuBaru> createState() => _BuatMenuBaruState();
@@ -66,11 +64,6 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                       'namaBarang': namaMenuController.text,
                       'hargaBarang': hargaMenuController.text,
                     });
-                    // ServicesMenu().saveMenukefirebase(BaruModelMenu(
-                    //     pengguna.email!,
-                    //     pengguna.id,
-                    //     namaMenuController.text,
-                    //     hargaMenuController.text.toString().length));
 
                     namaMenuController.text = '';
                     hargaMenuController.text = '';

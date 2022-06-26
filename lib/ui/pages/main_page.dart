@@ -41,17 +41,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-
-
-
-
-
-// code for sign out!
-//  ElevatedButton(
-//               onPressed: () {
-//                 AuthServices().signOut();
-//               },
-//               child: const Text('out'),
-//             ),
