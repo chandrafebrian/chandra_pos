@@ -27,4 +27,6 @@ class PenggunaBloc extends Bloc<PenggunaEvent, PenggunaState> {
       }
     });
   }
+
+  get pengguna => (state as PenggunaLoading).pengguna.id;
 }

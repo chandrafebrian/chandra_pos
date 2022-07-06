@@ -62,10 +62,9 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                     ).show(context);
                   } else {
                     ServicesMenu.menuCollection.add({
-                      'nama': widget.baruModelMenu.namaBarang =
-                          namaMenuController.text,
-                      'harga': widget.baruModelMenu.hargaBarang =
-                          int.parse(hargaMenuController.text),
+                      'userId': context.read<PenggunaBloc>().pengguna,
+                      'nama': namaMenuController.text,
+                      'harga': int.parse(hargaMenuController.text),
                     });
 
                     namaMenuController.text = '';
