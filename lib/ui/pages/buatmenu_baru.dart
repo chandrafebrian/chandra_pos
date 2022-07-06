@@ -3,7 +3,6 @@ part of 'pages.dart';
 
 class BuatMenuBaru extends StatefulWidget {
   final BaruModelMenu baruModelMenu;
-
   const BuatMenuBaru(Key? key, this.baruModelMenu) : super(key: key);
 
   @override
@@ -63,8 +62,10 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                   } else {
                     ServicesMenu.menuCollection.add({
                       'userId': context.read<PenggunaBloc>().pengguna,
-                      'nama': namaMenuController.text,
-                      'harga': int.parse(hargaMenuController.text),
+                      'nama': widget.baruModelMenu.namaBarang =
+                          namaMenuController.text,
+                      'harga': widget.baruModelMenu.hargaBarang =
+                          int.parse(hargaMenuController.text),
                     });
 
                     namaMenuController.text = '';
