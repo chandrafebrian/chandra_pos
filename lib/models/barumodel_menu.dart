@@ -1,14 +1,16 @@
 part of 'models.dart';
 
+// langkah 1
+
 class BaruModelMenu {
-  String email;
-  String namaBarang;
-  int hargaBarang;
+  String? userId;
+  String? namaBarang;
+  int? hargaBarang;
 
   BaruModelMenu({
-    this.email = '',
-    this.namaBarang = '',
-    this.hargaBarang = 0,
+    this.userId,
+    this.namaBarang,
+    this.hargaBarang,
   });
 }
 

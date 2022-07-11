@@ -1,12 +1,13 @@
 part of 'services.dart';
 
+// langakah 2
 class ServicesMenu {
   static CollectionReference menuCollection =
       FirebaseFirestore.instance.collection('collectMenus');
 
   Future<void> saveMenukefirebase(BaruModelMenu baruModelMenu) async {
     await menuCollection.add({
-      'email': '',
+      'userId': baruModelMenu.userId,
       'namaBarang': baruModelMenu.namaBarang,
       'hargaBarang': baruModelMenu.hargaBarang,
     });

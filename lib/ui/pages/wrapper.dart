@@ -37,8 +37,8 @@ class Wrapper extends StatelessWidget {
                         : (state is OnAccountConfirmationPage)
                             ? AccountConfirmationPage(
                                 key, state.registrationData)
-                            : (state is OnMainPage)
-                                ? const MainPage()
+                            : (state is OnHalamanMenu)
+                                ? BuatMenuBaru(key, state.baruModelMenu)
                                 :
                                 // (state is OnHistoryPage)
                                 //     ? const HistoryPage()
@@ -51,8 +51,8 @@ class Wrapper extends StatelessWidget {
                                 //                 : (state is OnSettingsPage)
                                 //                     ? const SettingsPage()
                                 //                     :
-                                (state is OnHalamanMenu)
-                                    ? BuatMenuBaru(key, state.baruModelMenu)
+                                (state is OnMainPage)
+                                    ? const MainPage()
                                     : Container());
   }
 }

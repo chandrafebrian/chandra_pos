@@ -1,5 +1,6 @@
 part of 'pages.dart';
 // halaman buat menu baru
+// langkah 3
 
 class BuatMenuBaru extends StatefulWidget {
   final BaruModelMenu baruModelMenu;
@@ -60,13 +61,18 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                       message: 'nama kurang dari 3 karakter',
                     ).show(context);
                   } else {
-                    ServicesMenu.menuCollection.add({
-                      'userId': context.read<PenggunaBloc>().pengguna,
-                      'nama': widget.baruModelMenu.namaBarang =
-                          namaMenuController.text,
-                      'harga': widget.baruModelMenu.hargaBarang =
-                          int.parse(hargaMenuController.text),
-                    });
+                    // belum diimplementasi
+                    ServicesMenu().saveMenukefirebase(widget.baruModelMenu);
+
+//
+                    //alternative 2022 juli
+                    // ServicesMenu.menuCollection.add({
+                    //   'userId': context.read<PenggunaBloc>().pengguna,
+                    //   'nama': widget.baruModelMenu.namaBarang =
+                    //       namaMenuController.text,
+                    //   'harga': widget.baruModelMenu.hargaBarang =
+                    //       int.parse(hargaMenuController.text),
+                    // });
 
                     namaMenuController.text = '';
                     hargaMenuController.text = '';
