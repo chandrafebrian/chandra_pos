@@ -69,16 +69,6 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
 
                     ServicesMenu().saveMenukefirebase(widget.baruModelMenu);
 
-//
-                    //alternative cara lain 2022 juli 11
-                    // ServicesMenu.menuCollection.add({
-                    //   'userId': context.read<PenggunaBloc>().pengguna,
-                    //   'nama': widget.baruModelMenu.namaBarang =
-                    //       namaMenuController.text,
-                    //   'harga': widget.baruModelMenu.hargaBarang =
-                    //       int.parse(hargaMenuController.text),
-                    // });
-
                     namaMenuController.text = '';
                     hargaMenuController.text = '';
                   }
@@ -92,3 +82,17 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
     );
   }
 }
+
+
+
+
+
+//alternative cara lain 2022 juli 11
+                    // ServicesMenu.menuCollection.add({
+                      //! untuk memanggil userId dari pengguna akun harus menggunakan bloc pengguna, agar bisa di copy ke database menu collection.
+                    //   'userId': context.read<PenggunaBloc>().pengguna, 
+                    //   'nama': widget.baruModelMenu.namaBarang =
+                    //       namaMenuController.text,
+                    //   'harga': widget.baruModelMenu.hargaBarang =
+                    //       int.parse(hargaMenuController.text),
+                    // });
