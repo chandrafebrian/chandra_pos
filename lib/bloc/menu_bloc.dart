@@ -15,13 +15,12 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
         List<BaruModelMenu> baruModelMenusList =
             state.baruModelMenusList + [event.baruModelMenu];
         emit(MenuState(baruModelMenusList));
-      }
-      // else if (event is GetMenuEvent) {
-      //   List<BaruModelMenu> baruModelMenus =
-      //       await ServicesMenu().ambilDataMenuFirebase(event.userID);
+      } else if (event is GetMenuEvent) {
+        List<BaruModelMenu> baruModelMenuList =
+            await ServicesMenu().ambilDataMenuFirebase(event.userId);
 
-      //   emit(MenuState(baruModelMenus));
-      // }
+        emit(MenuState(baruModelMenuList));
+      }
     });
   }
 }

@@ -8,20 +8,20 @@ abstract class MenuEvent extends Equatable {
 }
 
 class SaveMenuEvent extends MenuEvent {
-  final String userID;
+  final String userId;
   final BaruModelMenu baruModelMenu;
 
-  const SaveMenuEvent(this.userID, this.baruModelMenu);
+  const SaveMenuEvent(this.userId, this.baruModelMenu);
 
   @override
-  List<Object> get props => [userID, baruModelMenu];
+  List<Object> get props => [userId, baruModelMenu];
 }
 
 class GetMenuEvent extends MenuEvent {
-  final String userID;
+  final String userId;
 
-  const GetMenuEvent(this.userID);
+  const GetMenuEvent(this.userId);
 
   @override
-  List<Object> get props => [userID];
+  List<Object> get props => [userId];
 }

@@ -13,22 +13,21 @@ class ServicesMenu {
     });
   }
 
-  // Future<List<BaruModelMenu>> ambilDataMenuFirebase(String userID) async {
-  //   DocumentSnapshot snapshot = await menuCollection.doc().get();
+  Future<List<BaruModelMenu>> ambilDataMenuFirebase(String userId) async {
+    DocumentSnapshot snapshot = await menuCollection.doc().get();
 
-  //   var documents =
-  //       snapshot.get((document) => document.data()['userID'] == userID);
+    var documents =
+        snapshot.get((document) => document.data()['userId'] == userId);
 
-  //   List<BaruModelMenu> baruModelMenu = [];
+    List<BaruModelMenu> baruModelMenuList = [];
 
-  //   for (var documentDariFirebase in documents) {
-  //     baruModelMenu.add(BaruModelMenu(
-  //       documentDariFirebase.data()['email'],
-  //       documentDariFirebase.data()['userID'],
-  //       documentDariFirebase.data()['namaBarang'],
-  //       documentDariFirebase.data()['hargaBarang'],
-  //     ));
-  //   }
-  //   return baruModelMenu;
-  // }
+    for (var documentDariFirebase in documents) {
+      baruModelMenuList.add(BaruModelMenu(
+        userId: documentDariFirebase.data()['userId'],
+        namaBarang: documentDariFirebase.data()['namaBarang'],
+        hargaBarang: documentDariFirebase.data()['hargaBarang'],
+      ));
+    }
+    return baruModelMenuList;
+  }
 }
