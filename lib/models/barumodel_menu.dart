@@ -3,14 +3,14 @@ part of 'models.dart';
 // langkah 1
 
 class BaruModelMenu {
-  String? userId;
-  String? namaBarang;
-  int? hargaBarang;
+  String userId;
+  String namaBarang;
+  int hargaBarang;
 
   BaruModelMenu({
-    this.userId,
-    this.namaBarang,
-    this.hargaBarang,
+    this.userId = '',
+    this.namaBarang = '',
+    this.hargaBarang = 0,
   });
 }
 

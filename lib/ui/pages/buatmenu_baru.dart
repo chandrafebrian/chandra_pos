@@ -61,11 +61,16 @@ class _BuatMenuBaruState extends State<BuatMenuBaru> {
                       message: 'nama kurang dari 3 karakter',
                     ).show(context);
                   } else {
-                    // belum diimplementasi
+                    widget.baruModelMenu.userId =
+                        context.read<PenggunaBloc>().pengguna;
+                    widget.baruModelMenu.namaBarang = namaMenuController.text;
+                    widget.baruModelMenu.hargaBarang =
+                        int.parse(hargaMenuController.text);
+
                     ServicesMenu().saveMenukefirebase(widget.baruModelMenu);
 
 //
-                    //alternative 2022 juli
+                    //alternative cara lain 2022 juli 11
                     // ServicesMenu.menuCollection.add({
                     //   'userId': context.read<PenggunaBloc>().pengguna,
                     //   'nama': widget.baruModelMenu.namaBarang =
