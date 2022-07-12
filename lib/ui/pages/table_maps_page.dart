@@ -1,6 +1,6 @@
 // part of 'pages.dart';
 
-// // 3.  memanggil kerangka widget meja
+// 3.  memanggil kerangka widget meja
 
 // class TableMapsPage extends StatefulWidget {
 //   const TableMapsPage({Key? key}) : super(key: key);
