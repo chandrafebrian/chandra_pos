@@ -10,28 +10,32 @@ class WidgetCardMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: 80,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          decoration: BoxDecoration(
-            color: Colors.blueGrey,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              // Text(baruModelMenu.namaMenu),
-              // const Spacer(),
-              // Text(modelNilaiMeja.nomorMeja.toString()),
-              // Column(
-              //   children: [
-              //     Text(
-              //       'No: ' + modelNilaiMeja.id,
-              //     ),
-              //   ],
-              // )
-            ],
-          ),
+        BlocBuilder<MenuBloc, MenuState>(
+          builder: (context, state) {
+            return Container(
+              height: 80,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  // Text(baruModelMenu.namaMenu),
+                  // const Spacer(),
+                  // Text(modelNilaiMeja.nomorMeja.toString()),
+                  // Column(
+                  //   children: [
+                  //     Text(
+                  //       'No: ' + modelNilaiMeja.id,
+                  //     ),
+                  //   ],
+                  // )
+                ],
+              ),
+            );
+          },
         ),
       ],
     );
