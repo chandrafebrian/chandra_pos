@@ -30,13 +30,17 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            AuthServices().signOut();
-          },
-          child: Text('out'),
-        ),
+      body: ListView(
+        children: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                AuthServices().signOut();
+              },
+              child: Text('out'),
+            ),
+          ),
+        ],
       ),
     );
   }

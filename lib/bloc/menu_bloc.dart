@@ -5,7 +5,6 @@ import 'package:equatable/equatable.dart';
 part 'menu_event.dart';
 part 'menu_state.dart';
 
-// belum beres tgl 11 juli 2022
 class MenuBloc extends Bloc<MenuEvent, MenuState> {
   MenuBloc() : super(const MenuState([])) {
     on<MenuEvent>((event, emit) async {
