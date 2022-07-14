@@ -11,9 +11,9 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
       if (event is SaveMenuEvent) {
         await ServicesMenu().saveMenukefirebase(event.baruModelMenu);
 
-        List<BaruModelMenu> baruModelMenusList =
-            state.baruModelMenusList + [event.baruModelMenu];
-        emit(MenuState(baruModelMenusList));
+        List<BaruModelMenu> baruModelMenuList =
+            state.baruModelMenuList + [event.baruModelMenu];
+        emit(MenuState(baruModelMenuList));
       } else if (event is GetMenuEvent) {
         List<BaruModelMenu> baruModelMenuList =
             await ServicesMenu().ambilDataMenuFirebase(event.userId);

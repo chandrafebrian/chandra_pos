@@ -30,18 +30,26 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                AuthServices().signOut();
-              },
-              child: Text('out'),
+      body: Center(
+        child: ListView(
+          children: const [
+            SizedBox(
+              height: 100,
             ),
-          ),
-        ],
+            Text('data'),
+            Text('data'),
+          ],
+        ),
       ),
     );
   }
 }
+
+// Center(
+//             child: ElevatedButton(
+//               onPressed: () {
+//                 AuthServices().signOut();
+//               },
+//               child: Text('out'),
+//             ),
+//           ),

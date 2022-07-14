@@ -1,9 +1,9 @@
 part of 'widgets.dart';
 
 class WidgetCardMenu extends StatelessWidget {
-  final BaruModelMenu baruModelMenu;
+  final List<BaruModelMenu> baruModelMenuList;
 
-  const WidgetCardMenu({Key? key, required this.baruModelMenu})
+  const WidgetCardMenu({Key? key, required this.baruModelMenuList})
       : super(key: key);
 
   @override
@@ -12,27 +12,32 @@ class WidgetCardMenu extends StatelessWidget {
       children: [
         BlocBuilder<MenuBloc, MenuState>(
           builder: (context, state) {
-            return Container(
-              height: 80,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  // Text(baruModelMenu.namaMenu),
-                  // const Spacer(),
-                  // Text(modelNilaiMeja.nomorMeja.toString()),
-                  // Column(
-                  //   children: [
-                  //     Text(
-                  //       'No: ' + modelNilaiMeja.id,
-                  //     ),
-                  //   ],
-                  // )
-                ],
+            return ListView.builder(
+              itemCount: state.baruModelMenuList.length,
+              itemBuilder: (context, index) => Container(
+                height: 80,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Nama Menu: ' +
+                        state.baruModelMenuList[index].namaBarang),
+                    const Spacer(),
+                    Text('Harga :' +
+                        state.baruModelMenuList[index].hargaBarang.toString()),
+                    Column(
+                      children: [
+                        Text(
+                          'No: ' + state.baruModelMenuList[index].userId,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           },
@@ -42,4 +47,18 @@ class WidgetCardMenu extends StatelessWidget {
   }
 }
 
-// 
+
+ // height: 80,
+              // padding: const EdgeInsets.symmetric(horizontal: 16),
+              // decoration: BoxDecoration(
+              //   color: Colors.blueGrey,
+              //   borderRadius: BorderRadius.circular(10),
+              // ),
+              // child: Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text('Menu : ' + baruModelMenu.namaBarang),
+              //     const Spacer(),
+              //     Text('Harga : ' + baruModelMenu.hargaBarang.toString()),
+              //   ],
+              // ),

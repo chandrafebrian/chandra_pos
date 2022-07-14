@@ -15,6 +15,7 @@ class Wrapper extends StatelessWidget {
     } else {
       if (previousPageEvent is! GoToMainPage) {
         context.read<PenggunaBloc>().add(PenggunaMasuk(user.uid));
+        // context.read<MenuBloc>().add(GetMenuEvent(user.uid));
 
         // context
         //     .read()<CreatemenuBloc>()
