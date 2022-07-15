@@ -28,6 +28,6 @@ class ServicesMenu {
         hargaBarang: documentDariFirebase.data()['hargaBarang'],
       ));
     }
-    return baruModelMenuList;
+    return documents;
   }
 }

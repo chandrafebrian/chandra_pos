@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage> {
                   margin: const EdgeInsets.all(10),
                   child: ListTile(
                     title: Text(documentSnapshot['namaBarang'].toString()),
-                    subtitle: Text(documentSnapshot['hargaBarang'].toString()),
+                    subtitle: Text(documentSnapshot['userId'].toString()),
                     trailing: SizedBox(
                       width: 100,
                       child: Row(
