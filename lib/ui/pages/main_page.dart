@@ -28,28 +28,54 @@ class _MainPageState extends State<MainPage> {
               Icons.add,
             ),
           ),
+          IconButton(
+            onPressed: () {
+              AuthServices().signOut();
+            },
+            icon: Icon(Icons.exit_to_app),
+          ),
         ],
       ),
-      body: Center(
-        child: ListView(
-          children: const [
-            SizedBox(
-              height: 100,
-            ),
-            Text('data'),
-            Text('data'),
-          ],
-        ),
+      body: StreamBuilder(
+        stream: ServicesMenu.menuCollection.snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+          if (streamSnapshot.hasData) {
+            return ListView.builder(
+              itemCount: streamSnapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+                final DocumentSnapshot documentSnapshot =
+                    streamSnapshot.data!.docs[index];
+                return Card(
+                  margin: const EdgeInsets.all(10),
+                  child: ListTile(
+                    title: Text(documentSnapshot['namaBarang'].toString()),
+                    subtitle: Text(documentSnapshot['hargaBarang'].toString()),
+                    trailing: SizedBox(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          // Press this button to edit a single product
+                          IconButton(
+                              icon: const Icon(Icons.edit),
+                              onPressed: () => (documentSnapshot)),
+                          // This icon button is used to delete a single product
+                          IconButton(
+                              icon: const Icon(Icons.delete),
+                              onPressed: () => (documentSnapshot.id)),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            );
+          }
+
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }
 }
-
-// Center(
-//             child: ElevatedButton(
-//               onPressed: () {
-//                 AuthServices().signOut();
-//               },
-//               child: Text('out'),
-//             ),
-//           ),
