@@ -22,4 +22,6 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
       }
     });
   }
+
+  get baruModelMenuList => (state).baruModelMenuList;
 }

@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:chandra_pos/models/models.dart';
 import 'package:chandra_pos/services/services.dart';
 import 'package:equatable/equatable.dart';
+
 part 'pengguna_event.dart';
 part 'pengguna_state.dart';
 
@@ -30,6 +31,8 @@ class PenggunaBloc extends Bloc<PenggunaEvent, PenggunaState> {
     });
   }
 
+// get ini untuk mengambil data dari kelompok services collection lain difirebase dengan lebih detail spesifik
+  get penggunaEmail => (state as PenggunaLoading).pengguna.email;
   get pengguna => (state as PenggunaLoading).pengguna.id;
 }
 

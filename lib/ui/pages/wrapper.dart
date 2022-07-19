@@ -52,8 +52,7 @@ class Wrapper extends StatelessWidget {
                                 //                 : (state is OnSettingsPage)
                                 //                     ? const SettingsPage()
                                 //                     :
-                                (state is OnMainPage)
-                                    ? const MainPage()
-                                    : Container());
+
+                                const MainPage());
   }
 }
